@@ -45,6 +45,8 @@
 
 #include "mcc_generated_files/mcc.h"
 
+#include "ulisp_pic32.h"
+
 /*
                          Main application
  */
@@ -52,10 +54,12 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    ulisp_setup();
 
     while (1)
     {
         // Add your application code
+        ulisp_loop();
     }
 
     return -1;
