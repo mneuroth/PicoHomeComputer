@@ -1,18 +1,18 @@
 
 /**
-  SPI1 Generated Driver API Source File
+  SPI2 Generated Driver API Source File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    spi1.c
+    spi2.c
 
   @Summary
-    This is the generated source file for the SPI1 driver using PIC32MX MCUs
+    This is the generated source file for the SPI2 driver using PIC32MX MCUs
 
   @Description
-    This source file provides APIs for driver for SPI1.
+    This source file provides APIs for driver for SPI2.
     Generation Information :
         Product Revision  :  PIC32MX MCUs - pic32mx : v1.35
         Device            :  PIC32MX270F256B
@@ -49,60 +49,60 @@
 */
 
 #include <xc.h>
-#include "spi1.h"
+#include "spi2.h"
 
 /**
  Section: File specific functions
 */
 
-void SPI1_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData );
-uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t *pReceiveData);
+void SPI2_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData );
+uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t *pReceiveData);
 
 /**
  Section: Driver Interface Function Definitions
 */
 
 
-void SPI1_Initialize (void)
+void SPI2_Initialize (void)
 {
     // FRMERR disabled; 
-    SPI1STAT = 0x0;
-    // SPI1BRG 1; 
-    SPI1BRG = 0x1;
+    SPI2STAT = 0x0;
+    // SPI2BRG 1; 
+    SPI2BRG = 0x1;
     // AUDMONO disabled; AUDEN disabled; SPITUREN disabled; FRMERREN disabled; IGNROV disabled; SPISGNEXT disabled; SPIROVEN disabled; AUDMOD disabled; IGNTUR disabled; 
-    SPI1CON2 = 0x0;
+    SPI2CON2 = 0x0;
     // MCLKSEL PBCLK; DISSDO disabled; SRXISEL Last Word is Read; CKP Idle:Low, Active:High; FRMEN disabled; FRMSYPW One-Clock; SSEN disabled; FRMCNT 1; MSSEN disabled; MSTEN Slave; MODE16 disabled; FRMPOL disabled; SMP Middle; SIDL disabled; FRMSYNC disabled; CKE Idle to Active; MODE32 disabled; SPIFE Frame Sync pulse precedes; STXISEL Complete; DISSDI disabled; ON enabled; ENHBUF enabled; 
-    SPI1CON = 0x18000;
+    SPI2CON = 0x18000;
 
 }
 
 
-void SPI1_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
+void SPI2_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
 {
 
-    while( SPI1STATbits.SPITBF == true )
+    while( SPI2STATbits.SPITBF == true )
     {
 
     }
 
-    SPI1BUF = *((uint8_t*)pTransmitData);
+    SPI2BUF = *((uint8_t*)pTransmitData);
 
-    while ( SPI1STATbits.SPIRBE == true)
+    while ( SPI2STATbits.SPIRBE == true)
     {
     
     }
 
-    *((uint8_t*)pReceiveData) = SPI1BUF;
+    *((uint8_t*)pReceiveData) = SPI2BUF;
 
 }
 
-uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t *pReceiveData)
+uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t *pReceiveData)
 {
 
     uint16_t dataSentCount = 0;
     uint16_t count = 0;
     uint32_t dummyDataReceived = 0;
-    uint32_t dummyDataTransmit = SPI1_DUMMY_DATA;
+    uint32_t dummyDataTransmit = SPI2_DUMMY_DATA;
 
     uint8_t  *pSend, *pReceived;
 
@@ -127,24 +127,24 @@ uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
     }
 
 
-    while( SPI1STATbits.SPITBF == true )
+    while( SPI2STATbits.SPITBF == true )
     {
 
     }
 
     while (dataSentCount < byteCount)
     {
-        if ((count < ((SPI1_FIFO_FILL_LIMIT)*4)))
+        if ((count < ((SPI2_FIFO_FILL_LIMIT)*4)))
         {
-            SPI1BUF = *pSend;
+            SPI2BUF = *pSend;
             pSend += 1;
             dataSentCount++;
             count++;
         }
 
-        if (SPI1STATbits.SPIRBE == false)
+        if (SPI2STATbits.SPIRBE == false)
         {
-            *pReceived = SPI1BUF;
+            *pReceived = SPI2BUF;
             pReceived += 1;
             count--;
         }
@@ -152,9 +152,9 @@ uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
     }
     while (count)
     {
-        if (SPI1STATbits.SPIRBE == false)
+        if (SPI2STATbits.SPIRBE == false)
         {
-            *pReceived = SPI1BUF;
+            *pReceived = SPI2BUF;
             pReceived += 1;
             count--;
         }
@@ -165,24 +165,24 @@ uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 
 
 
-uint8_t SPI1_Exchange8bit( uint8_t data )
+uint8_t SPI2_Exchange8bit( uint8_t data )
 {
     uint8_t receiveData;
     
-    SPI1_Exchange(&data, &receiveData);
+    SPI2_Exchange(&data, &receiveData);
 
     return (receiveData);
 }
 
 
-uint16_t SPI1_Exchange8bitBuffer(uint8_t *dataTransmitted, uint16_t byteCount, uint8_t *dataReceived)
+uint16_t SPI2_Exchange8bitBuffer(uint8_t *dataTransmitted, uint16_t byteCount, uint8_t *dataReceived)
 {
-    return (SPI1_ExchangeBuffer(dataTransmitted, byteCount, dataReceived));
+    return (SPI2_ExchangeBuffer(dataTransmitted, byteCount, dataReceived));
 }
 
-SPI1_STATUS SPI1_StatusGet()
+SPI2_STATUS SPI2_StatusGet()
 {
-    return(SPI1STAT);
+    return(SPI2STAT);
 }
 
 /**
