@@ -3983,7 +3983,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB15"/>
-         <value>SELECT_ETHERNET</value>
+         <value>SCK2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB14"/>
@@ -5731,7 +5731,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB2"/>
-         <value>IO_RB2</value>
+         <value>SELECT_ETHERNET</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB3"/>
@@ -6435,7 +6435,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RB2"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RB3"/>
@@ -7213,7 +7213,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\ext_int.c</file>
-         <hash>b55bbb421e6946cc02232ed25002720714bc48f3a4a61b637c0f594b6174a30e</hash>
+         <hash>716b4076c223aefa41b7a7a73878a4a62cf36e41b6d4b69e5dcc6af6c0bf9ba6</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.h</file>
@@ -7245,7 +7245,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.h</file>
-         <hash>506a82bfb69e7c0aef0e9646654d1b651be7acc628ac3f9a13f251376cecfd8f</hash>
+         <hash>3d975cba39681390e7f8e1bd8a75f86bf60737bb95271b98c02db4a9ab6c054a</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\i2c1.h</file>
@@ -7269,7 +7269,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\ext_int.h</file>
-         <hash>cc4e5a1add82e701d6eae5629d6e45a3a806ac34f49a188435cad006417056a4</hash>
+         <hash>a60f814ad4fa8eaccee9e102a2ad43bed4d82c2ab49ee44213b368c42141c1da</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
