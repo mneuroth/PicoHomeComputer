@@ -62,14 +62,14 @@ void PIN_MANAGER_Initialize(void)
     /****************************************************************************
      * Setting the Output Latch SFR(s)
      ***************************************************************************/
-    LATA = 0x0000;
+    LATA = 0x0001;
     LATB = 0x0000;
 
     /****************************************************************************
      * Setting the GPIO Direction SFR(s)
      ***************************************************************************/
-    TRISA = 0x001F;
-    TRISB = 0xEFBF;
+    TRISA = 0x001C;
+    TRISB = 0xEF03;
 
     /****************************************************************************
      * Setting the Weak Pull Up and Weak Pull Down SFR(s)
@@ -88,9 +88,23 @@ void PIN_MANAGER_Initialize(void)
     /****************************************************************************
      * Setting the Analog/Digital Configuration SFR(s)
      ***************************************************************************/
-    ANSELA = 0x0003;
-    ANSELB = 0xE00C;
+    ANSELA = 0x0000;
+    ANSELB = 0x4004;
 
+    /****************************************************************************
+     * Set the PPS
+     ***************************************************************************/
+    SYSTEM_RegUnlock(); // unlock PPS
+    CFGCONbits.IOLOCK = 0;
+
+    U1RXRbits.U1RXR = 0x0002;   //RA4->UART1:U1RX;
+    INT1Rbits.INT1R = 0x0002;   //RB0->EXT_INT:INT1;
+    RPB5Rbits.RPB5R = 0x0004;   //RB5->SPI2:SDO2;
+    SDI2Rbits.SDI2R = 0x0003;   //RB13->SPI2:SDI2;
+    RPB4Rbits.RPB4R = 0x0001;   //RB4->UART1:U1TX;
+    
+    CFGCONbits.IOLOCK = 1; // lock   PPS
+    SYSTEM_RegLock(); 
 
     
 }

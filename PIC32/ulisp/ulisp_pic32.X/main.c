@@ -43,10 +43,28 @@
     TERMS.
 */
 
+#include <xc.h>
+
 #include "mcc_generated_files/mcc.h"
+#include "mcc_generated_files/pin_manager.h"
 
 #include "ulisp_pic32.h"
 
+#define GetSystemClock()       (FOSC)
+  
+ //*****************************************************************************
+ // DelayMs creates a delay of given miliseconds using the Core Timer
+ //
+ void DelayMs(int delay)
+ {
+     int i;
+     int j = 0;
+     for(i=0; i<10000*delay; i++)
+     {
+         j = 2*i;         
+     }
+ }
+  
 /*
                          Main application
  */
@@ -54,12 +72,16 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    LED_SetHigh();
     ulisp_setup();
 
     while (1)
     {
         // Add your application code
         ulisp_loop();
+        LED_Toggle();
+        //DelayMs(10);
+        //delay
     }
 
     return -1;

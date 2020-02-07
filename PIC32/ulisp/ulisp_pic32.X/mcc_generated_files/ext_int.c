@@ -35,33 +35,13 @@
    Section: External Interrupt Handlers
  */
 /**
-  Interrupt Handler for EX_INT1 - INT1
-*/
-void __ISR(_EXTERNAL_1_VECTOR, IPL1AUTO) _EXTERNAL_1(void)
-{
-    //***User Area Begin->code: Ext INT 1***
-
-    //***User Area End->code: Ext INT 1***
-    EX_INT1_InterruptFlagClear();
-}
-/**
     Section: External Interrupt Initializers
  */
 /**
     void EXT_INT_Initialize(void)
 
     Initializer for the following external interrupts
-    INT1
 */
 void EXT_INT_Initialize(void)
 {
-    /*******
-     * INT1
-     * Clear the interrupt flag
-     * Set the external interrupt edge detect
-     * Enable the interrupt, if enabled in the UI. 
-     ********/
-    EX_INT1_InterruptFlagClear();   
-    EX_INT1_NegativeEdgeSet();
-    EX_INT1_InterruptEnable();
 }
