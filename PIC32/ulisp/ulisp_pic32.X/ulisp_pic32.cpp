@@ -29,7 +29,11 @@ public:
     }
     char read()
     {
-        return UART1_Read();
+        if(available())
+        {
+            return UART1_Read();            
+        }
+        return -1;
     }    
     void flush()
     {
@@ -87,16 +91,33 @@ SpiImpl SPI;
 void delay(int ms)
 {
     // TODO
+/*
+    int i;
+    int j = 0;
+    for(i=0; i<10*ms; i++)
+    {
+        j = 2*i;         
+    }
+*/
 }
-int millis()
+unsigned long g_count = 0;
+unsigned long millis()
 {
     // TODO
-    return 0;
+//    g_count = g_count + 1000;
+//    return g_count*1000;
+    return g_count;
 }
 int micros()
 {
     // TODO
-    return 0;
+//    return g_count++;
+    return g_count;
+}
+
+void Log(const char * s)
+{
+//    pfstring(s, pserial); pln(pserial);    
 }
 
 #define OUTPUT 1        // TODO
@@ -188,8 +209,8 @@ const char LispLibrary[] PROGMEM = "";
 
 // #define resetautorun
 #define printfreespace
-#define serialmonitor
-// #define printgcs
+#define serialmonitor 
+//#define printgcs
 // #define sdcardsupport
 // #define lisplibrary
 
@@ -4034,7 +4055,7 @@ object *eval (object *form, object *env) {
   if (integerp(form) || floatp(form) || characterp(form) || stringp(form)) return form;
 
   if (symbolp(form)) {
-    symbol_t name = form->name;
+    symbol_t name = form->name;    
     if (name == NIL) return nil;
     object *pair = value(name, env);
     if (pair != NULL) return cdr(pair);
@@ -4054,7 +4075,7 @@ object *eval (object *form, object *env) {
   // List starts with a symbol?
   if (symbolp(function)) {
     symbol_t name = function->name;
-
+    
     if ((name == LET) || (name == LETSTAR)) {
       int TCstart = TC;
       object *assigns = first(args);
