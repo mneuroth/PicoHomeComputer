@@ -1,3 +1,180 @@
+#include "ulisp_pic32.h"
+
+#include "mcc_generated_files/uart1.h"
+
+#include <ctype.h>      // for: isspace
+#include <math.h>       // for: fmod
+#include <random>
+
+typedef int BitOrder;
+typedef int PinMode;
+
+class SerialImpl
+{
+public:
+    void begin(int baudrate)
+    {
+// TODO: baudrate korrekt setzen !       ==> use U1BRG in function UART1_Initialize() 
+// Bemerkung: baudrate wird via Tool MCC gesetzt !        
+        UART1_Initialize();
+    }
+    void write(const char s)
+    {
+        UART1_Write( s );
+    }
+    int available()
+    {
+        UART1_STATUS status = UART1_StatusGet();
+        return (status & UART1_RX_DATA_AVAILABLE)==UART1_RX_DATA_AVAILABLE;
+    }
+    char read()
+    {
+        return UART1_Read();
+    }    
+    void flush()
+    {
+        // TODO
+    }
+    void end()
+    {
+        // TODO
+    }
+    operator bool() { return true; }
+};
+
+SerialImpl Serial;
+SerialImpl Serial1;
+
+class WireImpl
+{
+public:
+    void begin() {}
+    size_t requestFrom(uint8_t address, size_t size, bool sendStop) { return 0; }
+    uint8_t status() { return 0; }
+    uint8_t requestFrom(uint8_t, uint8_t) { return 0; }
+    uint8_t requestFrom(uint8_t, uint8_t, uint8_t) { return 0; }
+    uint8_t requestFrom(int, int) { return 0; }
+    uint8_t requestFrom(int, int, int) { return 0; }
+    void beginTransmission(uint8_t) {}
+    void beginTransmission(int) {}
+    uint8_t endTransmission(void) { return 0; }
+    uint8_t endTransmission(uint8_t) { return 0; }
+    size_t write(uint8_t) { return 0; }
+    size_t write(const uint8_t *, size_t) { return 0; }
+    int available(void) { return 0; }
+    int read(void) { return 0; }
+};
+
+WireImpl Wire;
+
+class SPISettings 
+{
+public:
+    SPISettings(uint32_t clock, BitOrder bitOrder, uint8_t dataMode) {}
+};
+
+class SpiImpl
+{
+public:
+    static void begin() {}
+    static uint8_t transfer(uint8_t data) { return 0; }
+    static void beginTransaction(SPISettings settings) {}
+    static void endTransaction() {}
+};
+
+SpiImpl SPI;
+
+void delay(int ms)
+{
+    // TODO
+}
+int millis()
+{
+    // TODO
+    return 0;
+}
+int micros()
+{
+    // TODO
+    return 0;
+}
+
+#define OUTPUT 1        // TODO
+#define INPUT 2         // TODO
+#define INPUT_PULLUP 3  // TODO
+#define HIGH 1          // TODO
+#define LOW 0           // TODO
+#define SPI_MODE0 0     // TODO
+#define SPI_MODE1 1     // TODO
+#define SPI_MODE2 2     // TODO
+#define SPI_MODE3 3     // TODO
+#define MSBFIRST 1      // TODO
+#define LSBFIRST 2      // TODO
+
+void pinMode(int pin, int mode)
+{
+    // TODO
+}
+void digitalWrite(int pin, int value)
+{
+    // TODO
+}
+int digitalRead(int pin)
+{
+    // TODO
+    return 0;
+}
+void analogWrite(int pin, int value)
+{
+    // TODO
+}
+int analogRead(int pin)
+{
+    // TODO
+    return 0;
+}
+void randomSeed(int seed)
+{
+    // TODO
+}
+long random(int val)
+{
+    // TODO
+    return 0;
+}
+int bitRead(int value, int index)
+{
+    // TODO
+    return 0;
+}
+void yield()
+{
+    
+}
+
+void setup();
+void loop();
+
+extern "C" void ulisp_setup()
+{
+    setup();
+}
+
+extern "C" void ulisp_loop()
+{
+    loop();
+}
+
+
+#define PSTR(s) s
+#define PROGMEM
+#define WORKSPACESIZE 3072-SDSIZE       /* Cells (8*bytes) */
+#define EEPROMSIZE 4096                 /* Bytes available for EEPROM */
+#define SYMBOLTABLESIZE 512             /* Bytes */
+#define SDCARD_SS_PIN 16                /* RB7 == SELECT_SD_CARD */
+
+#define PGM_P const char * 
+
 /* uLisp ARM 3.0c - www.ulisp.com
    David Johnson-Davies - www.technoblogy.com - 11th January 2020
 
@@ -20,8 +197,8 @@ const char LispLibrary[] PROGMEM = "";
 
 // #include "LispLibrary.h"
 #include <setjmp.h>
-#include <SPI.h>
-#include <Wire.h>
+//#include <SPI.h>
+//#include <Wire.h>
 #include <limits.h>
 
 #if defined(sdcardsupport)
@@ -229,6 +406,36 @@ intptr_t lookupfn (symbol_t name);
 int builtin (char* n);
 void error (symbol_t fname, PGM_P string, object *symbol);
 void error2 (symbol_t fname, PGM_P string);
+
+// PATCHES for PIC32
+char nthchar (object *string, int n);
+void pserial (char c);
+void pfl (pfun_t pfun);
+void pfstring (const char *s, pfun_t pfun);
+void pstring (char *s, pfun_t pfun);
+char *symbolname (symbol_t x);
+char *lookupsymbol (symbol_t name);
+int listlength (symbol_t name, object *list);
+uint8_t lookupmin (symbol_t name);
+uint8_t lookupmax (symbol_t name);
+void pint (int i, pfun_t pfun);
+void testescape ();
+int gserial ();
+object *read (gfun_t gfun);
+void printstring (object *form, pfun_t pfun);
+object *edit (object *fun);
+void superprint (object *form, int lm, pfun_t pfun);
+int subwidthlist (object *form, int w);
+void supersub (object *form, int lm, int super, pfun_t pfun);
+int glibrary ();
+
+inline int maxbuffer (char *buffer) {
+  return SYMBOLTABLESIZE-(buffer-SymbolTable)-1;
+}
+inline void pln (pfun_t pfun) {
+  pfun('\n');
+}
+typedef bool boolean;
 
 // Set up workspace
 
@@ -3955,10 +4162,6 @@ object *eval (object *form, object *env) {
 
 // Print functions
 
-inline int maxbuffer (char *buffer) {
-  return SYMBOLTABLESIZE-(buffer-SymbolTable)-1;
-}
-
 void pserial (char c) {
   LastPrint = c;
   if (c == '\n') Serial.write('\r');
@@ -4070,10 +4273,6 @@ void pfloat (float f, pfun_t pfun) {
     pfun('e');
     pint(e, pfun);
   }
-}
-
-inline void pln (pfun_t pfun) {
-  pfun('\n');
 }
 
 void pfl (pfun_t pfun) {
