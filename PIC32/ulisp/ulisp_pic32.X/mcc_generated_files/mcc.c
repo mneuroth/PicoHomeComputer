@@ -103,6 +103,12 @@ void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
+    UART2_Initialize();
+    I2C1_Initialize();
+    SPI2_Initialize();
+    UART1_Initialize();
+    EXT_INT_Initialize();
+    TMR1_Initialize();
     INTERRUPT_Initialize();
 
 }
@@ -122,8 +128,8 @@ void SYSTEM_RegLock(void)
 void OSCILLATOR_Initialize(void)
 {
     SYSTEM_RegUnlock(); 
-    // CF no clock failure; COSC FRCDIV; PLLODIV DIV_256; PBDIVRDY disabled; SLOCK out of lock; FRCDIV FRC/1; SLPEN Idle on WAIT instruction; NOSC FRCDIV; PLLMULT MUL_24; SOSCEN disabled; PBDIV DIV_8; CLKLOCK unlocked; OSWEN Switch is Complete; SOSCRDY disabled; 
-    OSCCON = 0x381F7700;
+    // CF no clock failure; COSC PRI; PLLODIV DIV_256; PBDIVRDY disabled; SLOCK out of lock; FRCDIV FRC/1; SLPEN Idle on WAIT instruction; NOSC PRI; PLLMULT MUL_24; SOSCEN disabled; PBDIV DIV_8; CLKLOCK unlocked; OSWEN Switch is Complete; SOSCRDY disabled; 
+    OSCCON = 0x381F2200;
     SYSTEM_RegLock();
     // TUN Center Frequency; 
     OSCTUN = 0x0;

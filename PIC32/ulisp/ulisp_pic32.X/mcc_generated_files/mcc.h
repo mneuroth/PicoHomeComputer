@@ -49,14 +49,15 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "i2c1.h"
-#include "interrupt_manager.h"
-#include "uart1.h"
-#include "uart2.h"
-#include "ext_int.h"
 #include "spi2.h"
+#include "ext_int.h"
+#include "interrupt_manager.h"
+#include "uart2.h"
+#include "uart1.h"
+#include "i2c1.h"
+#include "tmr1.h"
 
-#define _XTAL_FREQ  40000000UL
+#define _XTAL_FREQ  10000000UL
 
 /**
  * @Param
