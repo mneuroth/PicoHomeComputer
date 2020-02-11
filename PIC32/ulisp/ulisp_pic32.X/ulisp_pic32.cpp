@@ -130,30 +130,61 @@ void Log(const char * s)
 //    pfstring(s, pserial); pln(pserial);    
 }
 
-#define OUTPUT 1        // TODO
-#define INPUT 2         // TODO
-#define INPUT_PULLUP 3  // TODO
-#define HIGH 1          // TODO
-#define LOW 0           // TODO
+// see: C:\usr\arduino-1.8.10\hardware\arduino\avr\cores\arduino\Arduino.h
+//      or: ATMega32\cores\arduino\Arduino.h
+#define INPUT 0x0
+#define OUTPUT 0x1
+#define INPUT_PULLUP 0x2
+
+#define HIGH 0x1
+#define LOW  0x0
+
+#define LSBFIRST 0
+#define MSBFIRST 1
+
 #define SPI_MODE0 0     // TODO
 #define SPI_MODE1 1     // TODO
 #define SPI_MODE2 2     // TODO
 #define SPI_MODE3 3     // TODO
-#define MSBFIRST 1      // TODO
-#define LSBFIRST 2      // TODO
 
 void pinMode(int pin, int mode)
 {
+    int val = mode == INPUT ? 1 : 0;
+    if( mode == INPUT_PULLUP )
+    {
+        val = 0;    // default to INPUT ==> TODO: is this ok ?
+    }
+    
+    // pin == 1 could not be changed --> MCLR
+    if( pin == 2 )
+    {
+        TRISAbits.TRISA0 = val;
+        //TRISAbits.TRISA1 = 1
+    }
+
     // TODO
 }
 void digitalWrite(int pin, int value)
 {
+    int val = value == HIGH ? 1 : 0;
+
+    if( pin == 2 )
+    {
+        LATAbits.LATA0 = val;
+    }
+    
     // TODO
 }
 int digitalRead(int pin)
 {
-    // TODO
-    return 0;
+    int ret = 0; 
+    
+    if( pin == 2 )
+    {
+        ret = PORTAbits.RA0;
+    }
+
+    return ret;
 }
 void analogWrite(int pin, int value)
 {
