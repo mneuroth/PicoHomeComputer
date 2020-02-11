@@ -92,6 +92,9 @@ void TMR1_Initialize (void)
     PR1 = 0x3E8;
     // TCKPS 1:1; TWDIS disabled; TCS PBCLK; SIDL disabled; TSYNC disabled; TGATE disabled; ON enabled; 
     T1CON = 0x8000;
+
+    IFS0CLR= 1 << _IFS0_T1IF_POSITION;
+    IEC0bits.T1IE = true;
 	
     tmr1_obj.timerElapsed = false;
 
@@ -99,14 +102,20 @@ void TMR1_Initialize (void)
 
 
 
-void TMR1_Tasks_16BitOperation( void )
+void __ISR(_TIMER_1_VECTOR, IPL1AUTO) _T1Interrupt (  )
 {
-    if(IFS0bits.T1IF)
-    {
-        tmr1_obj.count++;
-        tmr1_obj.timerElapsed = true;
-        IFS0CLR= 1 << _IFS0_T1IF_POSITION;
-    }
+
+    //***User Area Begin
+
+    // ticker function call;
+    // ticker is 1 -> Callback function gets called everytime this ISR executes
+    TMR1_CallBack();
+
+    //***User Area End
+
+    tmr1_obj.count++;
+    tmr1_obj.timerElapsed = true;
+    IFS0CLR= 1 << _IFS0_T1IF_POSITION;
 }
 
 void TMR1_Period16BitSet( uint16_t value )
@@ -135,12 +144,22 @@ uint16_t TMR1_Counter16BitGet( void )
     return( TMR1 );
 }
 
+void IncrementMillisCounter();
+
+void __attribute__ ((weak)) TMR1_CallBack(void)
+{
+    // Add your custom callback code here
+    IncrementMillisCounter();
+}
 
 void TMR1_Start( void )
 {
     /* Reset the status information */
     tmr1_obj.timerElapsed = false;
 
+    IFS0CLR= 1 << _IFS0_T1IF_POSITION;
+    /*Enable the interrupt*/
+    IEC0bits.T1IE = true;
 
     /* Start the Timer */
     T1CONbits.ON = 1;
@@ -151,6 +170,8 @@ void TMR1_Stop( void )
     /* Stop the Timer */
     T1CONbits.ON = false;
 
+    /*Disable the interrupt*/
+    IEC0bits.T1IE = false;
 }
 
 bool TMR1_GetElapsedThenClear(void)

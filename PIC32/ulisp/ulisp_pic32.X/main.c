@@ -53,7 +53,7 @@
 #define GetSystemClock()       (FOSC)
   
  //*****************************************************************************
- // DelayMs creates a delay of given miliseconds using the Core Timer
+ // DelayMs creates a delay of given milliseconds using the Core Timer
  //
  void DelayMs(int delay)
  {
@@ -72,7 +72,7 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    //TMR1_Start();  // for millis())
+    TMR1_Start();  // for millis())
     LED_SetHigh();
     ulisp_setup();
 

@@ -53,6 +53,21 @@
 */
 void INTERRUPT_Initialize (void)
 {    
+    //    INT1I: Ext INT 1
+    //    Priority: 1
+    //    SubPriority: 0
+        IPC1bits.INT1IP = 1;
+        IPC1bits.INT1IS = 0;
+    //    I2CMI: I2C1 Master Event
+    //    Priority: 1
+    //    SubPriority: 0
+        IPC8bits.I2C1IP = 1;
+        IPC8bits.I2C1IS = 0;
+    //    TI: Timer 1
+    //    Priority: 1
+    //    SubPriority: 0
+        IPC1bits.T1IP = 1;
+        IPC1bits.T1IS = 0;
 
     //  Enable the multi vector
     INTCONbits.MVEC = 1;

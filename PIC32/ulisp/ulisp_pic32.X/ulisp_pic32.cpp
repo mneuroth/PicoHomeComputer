@@ -1,5 +1,6 @@
 #include "ulisp_pic32.h"
 
+#include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/uart1.h"
 #include "mcc_generated_files/tmr1.h"
 
@@ -90,7 +91,7 @@ public:
 SpiImpl SPI;
 
 // see: https://www.aidanmocke.com/blog/2018/04/10/delays/
-#define SYS_FREQ 50000000 // Running at 50MHz
+#define SYS_FREQ _XTAL_FREQ // Running at 50MHz
 void delay_us(unsigned int us)
 {
     // Convert microseconds us into how many clock ticks it will take
@@ -103,35 +104,25 @@ void delay_us(unsigned int us)
 
 void delay(int ms)
 {
-    //delay_us(ms * 1000);
-    // TODO
-/*
-    int i;
-    int j = 0;
-    for(i=0; i<10*ms; i++)
-    {
-        j = 2*i;         
-    }
-*/
+    delay_us(ms * 1000);
 }
 
 // https://stackoverflow.com/questions/33042584/equivalent-of-arduino-millis-function-that-return-passed-time-in-pic-microc
 // https://libstock.mikroe.com/projects/view/2481/function-millis-in-pic
-unsigned long g_count = 0;
+unsigned long g_millisCounter = 0;
 unsigned long millis()
 {
-//    return (unsigned long)TMR1_SoftwareCounterGet();
-    // TODO
-    g_count = g_count + 1000;
-    return g_count*1000;
-//    return g_count;
+    //return (unsigned long)TMR1_SoftwareCounterGet();
+    return g_millisCounter;
 }
 int micros()
 {
-    //return millis()*1000;
-    // TODO
-//    return g_count++;
-    return g_count;
+    return millis()*1000;
+}
+
+extern "C" void IncrementMillisCounter()
+{
+    g_millisCounter++;
 }
 
 void Log(const char * s)

@@ -62,7 +62,7 @@
 #pragma config FNOSC = PRI    // Oscillator Selection Bits->Primary Osc (XT,HS,EC)
 #pragma config FSOSCEN = ON    // Secondary Oscillator Enable->Enabled
 #pragma config IESO = ON    // Internal/External Switch Over->Enabled
-#pragma config POSCMOD = HS    // Primary Oscillator Configuration->HS osc mode
+#pragma config POSCMOD = XT    // Primary Oscillator Configuration->XT osc mode
 #pragma config OSCIOFNC = OFF    // CLKO Output Signal Active on the OSCO Pin->Disabled
 #pragma config FPBDIV = DIV_8    // Peripheral Clock Divisor->Pb_Clk is Sys_Clk/8
 #pragma config FCKSM = CSDCMD    // Clock Switching and Monitor Selection->Clock Switch Disable, FSCM Disabled
@@ -107,8 +107,8 @@ void SYSTEM_Initialize(void)
     I2C1_Initialize();
     SPI2_Initialize();
     UART1_Initialize();
-    EXT_INT_Initialize();
     TMR1_Initialize();
+    EXT_INT_Initialize();
     INTERRUPT_Initialize();
 
 }
