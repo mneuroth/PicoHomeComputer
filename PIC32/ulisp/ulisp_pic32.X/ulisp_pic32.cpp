@@ -8,6 +8,8 @@
 #include <math.h>       // for: fmod
 #include <random>
 
+//#define sdcardsupport
+
 typedef int BitOrder;
 typedef int PinMode;
 
@@ -90,6 +92,8 @@ public:
 
 SpiImpl SPI;
 
+//int i = SYSCLK;
+
 // see: https://www.aidanmocke.com/blog/2018/04/10/delays/
 #define SYS_FREQ _XTAL_FREQ // Running at 50MHz
 void delay_us(unsigned int us)
@@ -160,6 +164,14 @@ void pinMode(int pin, int mode)
     {
         TRISAbits.TRISA0 = val;
         //TRISAbits.TRISA1 = 1
+    }
+    else if( pin == 3 )
+    {
+        TRISAbits.TRISA1 = val;
+    }
+    else if( pin == 4 )
+    {
+        TRISBbits.TRISB0 = val;
     }
 
     // TODO
@@ -264,7 +276,7 @@ const char LispLibrary[] PROGMEM = "";
 #include <limits.h>
 
 #if defined(sdcardsupport)
-#include <SD.h>
+//#include <SD.h>
 #define SDSIZE 172
 #else
 #define SDSIZE 0

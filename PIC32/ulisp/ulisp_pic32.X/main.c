@@ -76,6 +76,11 @@ int main(void)
     LED_SetHigh();
     ulisp_setup();
 
+// variable to hold the state of the current clock source
+//OSC_SYS_TYPE oscCurrent;
+// assign the current clock source to oscCurrent
+//oscCurrent = PLIB_OSC_CurrentSysClockGet(OSC_ID_0)
+        
     while (1)
     {
         // Add your application code
