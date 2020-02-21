@@ -2,7 +2,7 @@
 
 This directory contains the files to create the board of the PicoHomeComputer.
 
-#Releases
+Releases:
 
 Comment           | Version | Date
 ------------------|---------|----------
