@@ -16,11 +16,11 @@ The chipKIT plugin for the ArduinoIDE is normaly located in this directory:
 
     C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT
     
-To add the PicoHomeComputer to the supported boards add the content of [boards.patch](boards.txt.patch)
+To add the PicoHomeComputer to the supported boards add the content of [boards.txt.patch](boards.txt.patch)
 
-    C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT\hardware\pic32\2.1.0\bards.txt
+    C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT\hardware\pic32\2.1.0\boards.txt
     
 Copy the pinout information files ([Board_defs.h](variants/PicoHomeComputer/Board_Defs.h) and [Board_Data.c](variants/PicoHomeComputer/Board_Data.c)) 
-for the (PicoHomeComputer variant)[variants/PicoHomeComputer] to the variant directory
+for the [PicoHomeComputer variant](variants/PicoHomeComputer) to the variant directory
 
     C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT\hardware\pic32\2.1.0\variants\PicoHomeComputer
