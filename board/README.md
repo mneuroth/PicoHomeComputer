@@ -1,0 +1,1 @@
+## PicoHomeComputer BoardThis directory contains the files to create the board of the PicoHomeComputer.<img src="RetroHomeComputer_V1.0_board.png" alt="Board V 1.0" >
