@@ -24,3 +24,8 @@ Copy the pinout information files ([Board_defs.h](variants/PicoHomeComputer/Boar
 for the [PicoHomeComputer variant](variants/PicoHomeComputer) to the variant directory
 
     C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT\hardware\pic32\2.1.0\variants\PicoHomeComputer
+    
+Bootloader for PicoHomeComputer
+-------------------------------
+
+The bootloader for the ArduinoIDE/chipKIT environment can be found in the [PicoHomeComputer-pic32-bootloader repository](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader).    
