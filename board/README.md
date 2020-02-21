@@ -13,7 +13,7 @@ Arduino Pin | PIC32 Pin    | direction | comment
 --          | 1 MCLR       | --        | --
 0           | 2 RA0        | OUT       | LED
 1           | 3 RA1        | OUT       | SELECT_EXT
-2           | 4 RB0        | IN        | INT_ETHERNET
+2           | 4 RB0        | IN        | INT_ETHERNET (PROGRAM_BUTTON)
 3           | 5 RB1        | IN        | U2RX
 4           | 6 RB2        | OUT       | SELECT_ETHERNET
 5           | 7 RB3        | OUT       | SELECT_RAM
