@@ -29,3 +29,8 @@ Bootloader for PicoHomeComputer
 -------------------------------
 
 The bootloader for the ArduinoIDE/chipKIT environment can be found in the [PicoHomeComputer-pic32-bootloader repository](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader).    
+
+The bootloader must be installed to use the PicoHomeComputer with the ArduinoIDE. To enter into bootloader mode the 
+PROGRAM_BUTTON (Arduino pin 2, PIC32 pin 4 (RB0)) must be pressed when resetting the PicoHomeComputer board.
+The fast flashing LED indicates, that the boards mode was entered and the PIC32 waits for a program to be 
+transfered via the USB connection (as serial COM port) from the ArduinoIDE.

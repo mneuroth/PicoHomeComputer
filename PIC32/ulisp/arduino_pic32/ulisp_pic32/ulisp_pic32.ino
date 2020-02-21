@@ -11,9 +11,9 @@ const char LispLibrary[] PROGMEM = "";
 
 // #define resetautorun
 #define printfreespace
-#define serialmonitor
-// #define printgcs
-// #define sdcardsupport
+#define serialmonitor 
+//#define printgcs
+//#define sdcardsupport
 // #define lisplibrary
 
 // Includes
@@ -30,6 +30,26 @@ const char LispLibrary[] PROGMEM = "";
 #else
 #define SDSIZE 0
 #endif
+
+// TODO: welches define gibt es fuer chipkit maschinen ? --> ARDUINO_ARCH_PIC32
+#if defined(ARDUINO_ARCH_PIC32)
+
+#if defined(_BOARD_PICO_HOMECOMPUTER_)
+#define PSTR(s) s
+#define PROGMEM
+#define WORKSPACESIZE 3072-SDSIZE       /* Cells (8*bytes) */
+//#define EEPROMSIZE 4096                 /* Bytes available for EEPROM */
+#define SYMBOLTABLESIZE 512             /* Bytes */
+#define SDCARD_SS_PIN 9                 /* RB7 == SELECT_SD_CARD */
+#endif
+
+#else
+#error This sketch is intended for the PIC32 platform !
+#endif
+
+#define PGM_P const char * 
+
+typedef int BitOrder;
 
 // C Macros
 
@@ -229,6 +249,36 @@ intptr_t lookupfn (symbol_t name);
 int builtin (char* n);
 void error (symbol_t fname, PGM_P string, object *symbol);
 void error2 (symbol_t fname, PGM_P string);
+
+// PATCHES for PIC32
+/*
+char nthchar (object *string, int n);
+void pserial (char c);
+void pfl (pfun_t pfun);
+void pfstring (const char *s, pfun_t pfun);
+void pstring (char *s, pfun_t pfun);
+char *symbolname (symbol_t x);
+char *lookupsymbol (symbol_t name);
+int listlength (symbol_t name, object *list);
+uint8_t lookupmin (symbol_t name);
+uint8_t lookupmax (symbol_t name);
+void pint (int i, pfun_t pfun);
+void testescape ();
+int gserial ();
+object *read (gfun_t gfun);
+void printstring (object *form, pfun_t pfun);
+object *edit (object *fun);
+void superprint (object *form, int lm, pfun_t pfun);
+int subwidthlist (object *form, int w);
+void supersub (object *form, int lm, int super, pfun_t pfun);
+int glibrary ();
+*/
+inline int maxbuffer (char *buffer) {
+  return SYMBOLTABLESIZE-(buffer-SymbolTable)-1;
+}
+inline void pln (pfun_t pfun) {
+  pfun('\n');
+}
 
 // Set up workspace
 
@@ -3827,7 +3877,7 @@ object *eval (object *form, object *env) {
   if (integerp(form) || floatp(form) || characterp(form) || stringp(form)) return form;
 
   if (symbolp(form)) {
-    symbol_t name = form->name;
+    symbol_t name = form->name;    
     if (name == NIL) return nil;
     object *pair = value(name, env);
     if (pair != NULL) return cdr(pair);
@@ -3847,7 +3897,7 @@ object *eval (object *form, object *env) {
   // List starts with a symbol?
   if (symbolp(function)) {
     symbol_t name = function->name;
-
+    
     if ((name == LET) || (name == LETSTAR)) {
       int TCstart = TC;
       object *assigns = first(args);
@@ -3954,10 +4004,6 @@ object *eval (object *form, object *env) {
 }
 
 // Print functions
-
-inline int maxbuffer (char *buffer) {
-  return SYMBOLTABLESIZE-(buffer-SymbolTable)-1;
-}
 
 void pserial (char c) {
   LastPrint = c;
@@ -4070,10 +4116,6 @@ void pfloat (float f, pfun_t pfun) {
     pfun('e');
     pint(e, pfun);
   }
-}
-
-inline void pln (pfun_t pfun) {
-  pfun('\n');
 }
 
 void pfl (pfun_t pfun) {
@@ -4300,14 +4342,33 @@ void initenv () {
   tee = symbol(TEE);
 }
 
-void setup () {
+#define LED_PIN 0
+
+int blink_id;
+unsigned long blink_var;
+
+// see: https://chipkit.net/wiki/index.php?title=Task_Manager
+void blink_task(int id, void * tptr) 
+{
+   digitalWrite(LED_PIN, !digitalRead(LED_PIN)); // Toggle pin state
+}
+ 
+void setup () { 
   Serial.begin(9600);
   int start = millis();
   while ((millis() - start) < 5000) { if (Serial) break; }
   initworkspace();
   initenv();
   initsleep();
+
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_PIN, OUTPUT);
+  //digitalWrite(LED_PIN, HIGH);
+  blink_id = createTask(blink_task, 250, TASK_ENABLE, &blink_var);  
+  
   pfstring(PSTR("uLisp 3.0 "), pserial); pln(pserial);
+  pfstring(PSTR("task="), pserial); 
+  pint(blink_id, pserial); pln(pserial);
 }
 
 // Read/Evaluate/Print loop
@@ -4359,3 +4420,13 @@ void loop () {
   #endif
   repl(NULL);
 }
+
+#if defined(__PIC32_PPS__)
+// is set !
+#endif 
+#if (__PIC32_PINS__ == 28)
+// is set !
+#endif
+#if (__PIC32_PINS__ == 64)
+#error asfd
+#endif
