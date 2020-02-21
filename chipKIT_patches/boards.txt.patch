@@ -1,0 +1,30 @@
+
+# PicoHomeComputer, see HelvePic32 MX270
+
+picoHomeComputer.name=PicoHomeComputer
+picoHomeComputer.group=PicoHomeComputer
+
+# new items
+picoHomeComputer.platform=pic32
+picoHomeComputer.build.board=_BOARD_PICO_HOMECOMPUTER_
+picoHomeComputer.ccflags=-Map="map.map"
+picoHomeComputer.ldscript=chipKIT-application-32MX270F256.ld
+# Use this -G1024 option ONLY for boards with 64K RAM or less
+picoHomeComputer.compiler.c.extra_flags=-G1024
+picoHomeComputer.compiler.cpp.extra_flags=-G1024
+# end of new items
+
+picoHomeComputer.usb.enabled=true
+picoHomeComputer.usb.default=z_custom
+
+picoHomeComputer.upload.protocol=stk500v2
+# 128KB - 4K for EEPROM - 4K for bootloader
+picoHomeComputer.upload.maximum_size=249856
+picoHomeComputer.upload.maximum_data_size=63488
+picoHomeComputer.upload.speed=115200
+picoHomeComputer.upload.tool=pic32prog
+
+picoHomeComputer.build.mcu=32MX270F256B
+picoHomeComputer.build.f_cpu=48000000L
+picoHomeComputer.build.core=pic32
+picoHomeComputer.build.variant=PicoHomeComputer

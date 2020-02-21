@@ -1,0 +1,25 @@
+## Patches for the PicoHomeComputer in the chipKIT environment
+
+Setup of the development environment for the PicoHomeComputer:
+
+  - Install the (ArduinoIDE)[https://www.arduino.cc/en/Main/Software]
+  - Install the chipKIT plugin, for further details see the original (chipKIT documentation)[https://chipkit.net/wiki/index.php?title=ChipKIT_core]
+  - Patch the chipKIT to add support for the PicoHomeComputer
+
+Patch for PicoHomeComputer
+--------------------------  
+  
+To add the PicoHomeComputer to the supported boards of the (chipKIT environment)[http://chipkit.net/] in the ArduinoIDE
+some files have to be modified.
+
+The chipKIT plugin for the ArduinoIDE is normaly located in this directory:
+
+    C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT
+    
+To add the PicoHomeComputer to the supported boards add the content of [boards.patch](boards.txt.patch)
+
+    C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT\hardware\pic32\2.1.0\bards.txt
+    
+Copy the pinout information files (Board_Defs.h and Board_Data.c) for the (PicoHomeComputer variant)[variants/PicoHomeComputer] to the variant directory
+
+    C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT\hardware\pic32\2.1.0\variants\PicoHomeComputer
