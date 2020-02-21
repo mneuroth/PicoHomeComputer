@@ -1,6 +1,6 @@
 /************************************************************************/
 /*																		*/
-/*	Board_Defs.h --	CmodCK1 Board Customization Declarations			*/
+/*	Board_Defs.h --	PicoHomeComputer Board Customization Declarations	*/
 /*																		*/
 /************************************************************************/
 /*	Author: Gene Apperson												*/
@@ -27,6 +27,7 @@
 /*  03/26/2013(KeithV): Modified for DP32 board                         */
 /*	05/27/2013(ClaudiaGoga): Fixed MISO, MOSI definitions.       		*/
 /*							Added definitions to support PPS for SPI1	*/
+/*  02/16/2020(MNeuroth): Modified for PicoHomeComputer board           */
 /*																		*/
 /************************************************************************/
 //*	This library is free software; you can redistribute it and/or
@@ -57,7 +58,7 @@
 ** refer to periperhals on the board generically.
 */
 
-#define	_BOARD_NAME_	"HelvePic32A"
+#define	_BOARD_NAME_	"PicoHomeComputer"
 #define _USB
 
 /* Define the peripherals available on the board.
@@ -79,7 +80,7 @@
 /* Define I/O devices on the board.
 */
 #define	NUM_LED				1
-#define NUM_BTN				1
+#define NUM_BTN				0
 #define	NUM_SWT				0
 #define NUM_SERVO			0
 
@@ -89,7 +90,7 @@
 
 /* Define the pin numbers for the LEDs
 */
-#define	PIN_LED1	10
+#define	PIN_LED1	0
 
 /* ------------------------------------------------------------ */
 /*					Button Declarations							*/
@@ -97,7 +98,7 @@
 
 /* One button (PRG) for this board
 */
-#define	PIN_BTN1	1 
+//#define	PIN_BTN1	1 
 
 /* Also define the virutal program button for soft reset */
 #define USE_VIRTUAL_PROGRAM_BUTTON      1
@@ -156,14 +157,14 @@
 /* These symbols are defined for compatibility with the original
 ** SPI library and the original pins_arduino.h. 
 */
-const static uint8_t SS   = 2;
-const static uint8_t MISO = 3;
-const static uint8_t MOSI =	8;
+const static uint8_t SS   = 9;      // SD-Card select
+const static uint8_t MISO = 8;
+const static uint8_t MOSI =	12;
 const static uint8_t SCK  = 14;
 
 /* The Digilent DSPI library uses these ports.
 */
-#define	PIN_DSPI0_SS	2
+//#define	PIN_DSPI0_SS	2
 /* ------------------------------------------------------------ */
 /*					Analog Pins									*/
 /* ------------------------------------------------------------ */
@@ -279,7 +280,7 @@ extern const uint8_t	external_int_to_digital_pin_PGM[];
 /*					Serial Port Declarations					*/
 /* ------------------------------------------------------------ */
 
-/* Serial port 0 uses UART1 – for the serial monitor
+/* Serial port 0 uses UART1 ï¿½ for the serial monitor
 */
 #define       _SER0_BASE           _UART1_BASE_ADDRESS
 #define       _SER0_IRQ            _UART1_ERR_IRQ
@@ -288,9 +289,9 @@ extern const uint8_t	external_int_to_digital_pin_PGM[];
 #define       _SER0_IPL            _UART1_IPL_IPC
 #define       _SER0_SPL            _UART1_SPL_IPC
 #define       _SER0_TX_OUT         PPS_OUT_U1TX     // RPB3R = U1TX = 1   
-#define       _SER0_TX_PIN         7
+#define       _SER0_TX_PIN         6
 #define       _SER0_RX_IN          PPS_IN_U1RX      // U1RXR = RPB13 = 3
-#define       _SER0_RX_PIN         13
+#define       _SER0_RX_PIN         7
 
 
 /* Serial port 1 uses UART2
@@ -302,7 +303,7 @@ extern const uint8_t	external_int_to_digital_pin_PGM[];
 #define       _SER1_IPL            _UART2_IPL_IPC
 #define       _SER1_SPL            _UART2_SPL_IPC
 #define       _SER1_TX_OUT         PPS_OUT_U2TX     // RPB14R = U2TX = 2
-#define       _SER1_TX_PIN         14
+#define       _SER1_TX_PIN         13
 #define       _SER1_RX_IN          PPS_IN_U2RX      // U2RXR = RPA1 = 0
 #define       _SER1_RX_PIN         3
 
@@ -378,8 +379,8 @@ extern const uint8_t	external_int_to_digital_pin_PGM[];
 #define	_DTWI0_IPL		_I2C1_IPL_IPC
 #define	_DTWI0_SPL		_I2C1_SPL_IPC
 
-#define _DTWI0_SCL_PIN  2
-#define _DTWI0_SDA_PIN  3
+#define _DTWI0_SCL_PIN  10
+#define _DTWI0_SDA_PIN  11
 
 /* ------------------------------------------------------------ */
 /*					A/D Converter Declarations					*/

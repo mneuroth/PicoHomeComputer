@@ -1,6 +1,6 @@
 /************************************************************************/
 /*																		*/
-/*	Board_Data.c --	DP32 Customization Data Declarations		        */
+/*	Board_Data.c -- PicoHomeComputer Customization Data Declarations    */
 /*																		*/
 /************************************************************************/
 /*	Author: Gene Apperson												*/
@@ -20,7 +20,8 @@
 /*  Revision History:													*/
 /*																		*/
 /*	11/28/2011(GeneA): Created by splitting data out of Board_Defs.h	*/
-/*  03/26/2013(KeithV): Modified for DP32 board                          */
+/*  03/26/2013(KeithV): Modified for DP32 board                         */
+/*  02/16/2020(MNeuroth): Modified for PicoHomeComputer board           */
 /*																		*/
 /************************************************************************/
 //*	This library is free software; you can redistribute it and/or
@@ -111,24 +112,22 @@ const uint32_t	port_to_tris_PGM[] = {
 ** for every possible port bit in order from PORTA to PORTG.
 */
 const uint8_t	digital_pin_to_port_PGM[] = {
-    // Pins 0 through 18
-    _IOPORT_PB, //  0   J2-0    RB5     TMS/RPB5/USBID/RB5
-	_IOPORT_PB, //  1   J2-1    RB4     SOSCI/RPB4/RB4 
-    _IOPORT_PA, //  2   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
-	_IOPORT_PA, //  3   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
-	_IOPORT_PB, //  4   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
-	_IOPORT_PB, //  5   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
-	_IOPORT_PB, //  6   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
-	_IOPORT_PB, //  7   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
-
-	_IOPORT_PA, //  8   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
-	_IOPORT_PB, //  9   J4-1    RB4     SOSCI/RPB4/RB4 
-    _IOPORT_PB, // 10   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
-    _IOPORT_PB, // 11   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
-    _IOPORT_PB, // 12   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
-	_IOPORT_PB, // 13   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
-	_IOPORT_PB, // 14   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
-	_IOPORT_PB, // 15   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
+    // Pins 0 through 14
+	_IOPORT_PA, //  0   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
+	_IOPORT_PA, //  1   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
+	_IOPORT_PB, //  2   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
+	_IOPORT_PB, //  3   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
+	_IOPORT_PB, //  4   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
+	_IOPORT_PB, //  5   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
+	_IOPORT_PB, //  6   J2-1    RB4     SOSCI/RPB4/RB4 
+	_IOPORT_PA, //  7   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
+	_IOPORT_PB, //  8   J2-0    RB5     TMS/RPB5/USBID/RB5
+	_IOPORT_PB, //  9   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
+	_IOPORT_PB, // 10   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
+	_IOPORT_PB, // 11   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
+	_IOPORT_PB, // 12   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
+	_IOPORT_PB, // 13   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
+	_IOPORT_PB, // 14   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
 
 };
 
@@ -137,23 +136,21 @@ const uint8_t	digital_pin_to_port_PGM[] = {
 ** for the corresponding bit within the port.
 */
 const uint16_t	digital_pin_to_bit_mask_PGM[] = {
-    _BV( 5 ) ,   //  0   J2-0    RB5     TMS/RPB5/USBID/RB5
-	_BV( 4 ) ,	 //  1   J2-1    RB4     SOSCI/RPB4/RB4 
-    _BV( 0 ) ,   //  2   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
-	_BV( 1 ) ,	 //  3   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
-	_BV( 0 ) ,	 //  4   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
-	_BV( 1 ),	 //  5   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
-	_BV( 2 ),	 //  6   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
-	_BV( 3 ) ,	 //  7   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
-
-	_BV( 4 ) ,	 //  8   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
-	_BV( 4 ) ,	 //  9   J4-1    RB4     SOSCI/RPB4/RB4 
-    _BV( 7 ) ,   // 10   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
-    _BV( 8 ) ,   // 11   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
-    _BV( 9 ) ,   // 12   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
-	_BV( 13 ),	 // 13   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
-	_BV( 14 ),	 // 14   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
-	_BV( 15 ) ,	 // 15   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
+	_BV( 0 ) ,   //  0   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
+	_BV( 1 ) ,	 //  1   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
+	_BV( 0 ) ,	 //  2   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
+	_BV( 1 ) ,	 //  3   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
+	_BV( 2 ) ,	 //  4   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
+	_BV( 3 ) ,	 //  5   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
+	_BV( 4 ) ,	 //  6   J2-1    RB4     SOSCI/RPB4/RB4 
+	_BV( 4 ) ,	 //  7   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
+	_BV( 5 ) ,   //  8   J2-0    RB5     TMS/RPB5/USBID/RB5
+    _BV( 7 ) ,   //  9   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
+    _BV( 8 ) ,   // 10   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
+    _BV( 9 ) ,   // 11   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
+	_BV( 13 ),	 // 12   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
+	_BV( 14 ),	 // 13   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
+	_BV( 15 ) ,	 // 14   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
 };
 
 /* ------------------------------------------------------------ */
@@ -162,23 +159,21 @@ const uint16_t	digital_pin_to_bit_mask_PGM[] = {
 ** input associated with that pin.
 */
 const uint16_t	digital_pin_to_timer_PGM[] = {
-    NOT_ON_TIMER,                           //  0   J2-0    RB5     USB                     TMS/RPB5/USBID/RB5
-	NOT_ON_TIMER,                           //  1   J2-1    RB4     INT4, CS2               SOSCI/RPB4/RB4 
-    NOT_ON_TIMER,                           //  2   J2-2    RA0     CS1                     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
-	NOT_ON_TIMER,	                        //  3   J2-3    RA1     SDI1, RX2               PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
-	_TIMER_IC2,	                            //  4   J2-4    RB0     PGD, IC2                PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
-	_TIMER_TCK3,	                        //  5   J2-5    RB1     PGC, TCK3               PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
-	_TIMER_OC4  | _TIMER_IC5,	            //  6   J2-6    RB2     OC4, INT2, IC1, SDI2    AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
-	_TIMER_TCK2 | _TIMER_IC4,	            //  7   J2-7    RB3     TCK2, IC4, TX1          AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
-
-	_TIMER_TCK1,	                        //  8   J4-0    RA4     SDO1, TCK1              SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
-	NOT_ON_TIMER,                           //  9   J4-1    RB4     INT4, CS2               SOSCI/RPB4/RB4 
-    NOT_ON_TIMER,                           // 10   J4-2    RB7     INT0                    TDI/RPB7/CTED3/PMD5/INT0/RB7   
-    _TIMER_OC2  | _TIMER_IC3,               // 11   J4-3    RB8     OC2, INT3, IC3, SDO2    TCK/RPB8/SCL1/CTED10/PMD4/RB8
-    _TIMER_OC3  | _TIMER_TCK5,              // 12   J4-4    RB9     OC3, INT1, TCK5         TDO/RPB9/SDA1/CTED4/PMD3/RB9
-	_TIMER_OC5  | _TIMER_TCK4 | _TIMER_IC1, // 13   J4-5    RB13    OC5, TCK4, IC1, RX1     AN11/RPB13/CTPLS/PMRD/RB13
-	NOT_ON_TIMER,	                        // 14   J4-6    RB14    SCK1, TX2               CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
-	_TIMER_OC1,	                            // 15   J4-7    RB15    OC1, SCK2               AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
+	NOT_ON_TIMER,                           //  0   J2-2    RA0     CS1                     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
+	NOT_ON_TIMER,	                        //  1   J2-3    RA1     SDI1, RX2               PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
+	_TIMER_IC2,	                            //  2   J2-4    RB0     PGD, IC2                PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
+	_TIMER_TCK3,	                        //  3   J2-5    RB1     PGC, TCK3               PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
+	_TIMER_OC4  | _TIMER_IC5,	            //  4   J2-6    RB2     OC4, INT2, IC1, SDI2    AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
+	_TIMER_TCK2 | _TIMER_IC4,	            //  5   J2-7    RB3     TCK2, IC4, TX1          AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
+	NOT_ON_TIMER,                           //  6   J2-1    RB4     INT4, CS2               SOSCI/RPB4/RB4 
+	_TIMER_TCK1,	                        //  7   J4-0    RA4     SDO1, TCK1              SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
+	NOT_ON_TIMER,                           //  8   J2-0    RB5     USB                     TMS/RPB5/USBID/RB5
+    NOT_ON_TIMER,                           //  9   J4-2    RB7     INT0                    TDI/RPB7/CTED3/PMD5/INT0/RB7   
+    _TIMER_OC2  | _TIMER_IC3,               // 10   J4-3    RB8     OC2, INT3, IC3, SDO2    TCK/RPB8/SCL1/CTED10/PMD4/RB8
+    _TIMER_OC3  | _TIMER_TCK5,              // 11   J4-4    RB9     OC3, INT1, TCK5         TDO/RPB9/SDA1/CTED4/PMD3/RB9
+	_TIMER_OC5  | _TIMER_TCK4 | _TIMER_IC1, // 12   J4-5    RB13    OC5, TCK4, IC1, RX1     AN11/RPB13/CTPLS/PMRD/RB13
+	NOT_ON_TIMER,	                        // 13   J4-6    RB14    SCK1, TX2               CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
+	_TIMER_OC1,	                            // 14   J4-7    RB15    OC1, SCK2               AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
 };
 
 /* ------------------------------------------------------------ */
@@ -192,23 +187,21 @@ const uint16_t	digital_pin_to_timer_PGM[] = {
 ** to the register.
 */
 const uint8_t digital_pin_to_pps_out_PGM[] = {
-    _PPS_OUT(_PPS_RPB5R),   //  0   J2-0    RB5     TMS/RPB5/USBID/RB5
-	_PPS_OUT(_PPS_RPB4R),	//  1   J2-1    RB4     SOSCI/RPB4/RB4 
-    _PPS_OUT(_PPS_RPA0R),   //  2   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
-	_PPS_OUT(_PPS_RPA1R),	//  3   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
-	_PPS_OUT(_PPS_RPB0R),	//  4   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
-	_PPS_OUT(_PPS_RPB1R),   //  5   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
-	_PPS_OUT(_PPS_RPB2R),	//  6   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
-	_PPS_OUT(_PPS_RPB3R),   //  7   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
-
-	_PPS_OUT(_PPS_RPA4R),	//  8   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
-	_PPS_OUT(_PPS_RPB4R),	//  9   J4-1    RB4     SOSCI/RPB4/RB4 
-    _PPS_OUT(_PPS_RPB7R),   // 10   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
-    _PPS_OUT(_PPS_RPB8R),   // 11   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
-    _PPS_OUT(_PPS_RPB9R),   // 12   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
-	_PPS_OUT(_PPS_RPB13R),	// 13   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
-	_PPS_OUT(_PPS_RPB14R),	// 14   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
-	_PPS_OUT(_PPS_RPB15R),	// 15   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
+	_PPS_OUT(_PPS_RPA0R),   //  0   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
+	_PPS_OUT(_PPS_RPA1R),	//  1   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
+	_PPS_OUT(_PPS_RPB0R),	//  2   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
+	_PPS_OUT(_PPS_RPB1R),   //  3   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
+	_PPS_OUT(_PPS_RPB2R),	//  4   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
+	_PPS_OUT(_PPS_RPB3R),   //  5   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
+	_PPS_OUT(_PPS_RPB4R),	//  6   J2-1    RB4     SOSCI/RPB4/RB4 
+	_PPS_OUT(_PPS_RPA4R),	//  7   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
+	_PPS_OUT(_PPS_RPB5R),   //  8   J2-0    RB5     TMS/RPB5/USBID/RB5
+    _PPS_OUT(_PPS_RPB7R),   //  9   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
+    _PPS_OUT(_PPS_RPB8R),   // 10   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
+    _PPS_OUT(_PPS_RPB9R),   // 11   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
+	_PPS_OUT(_PPS_RPB13R),	// 12   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
+	_PPS_OUT(_PPS_RPB14R),	// 13   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
+	_PPS_OUT(_PPS_RPB15R),	// 14   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
 };
 
 /* ------------------------------------------------------------ */
@@ -223,23 +216,21 @@ const uint8_t digital_pin_to_pps_out_PGM[] = {
 ** access the table redefined as well.
 */
 const uint8_t digital_pin_to_pps_in_PGM[] = {
-    _PPS_IN(_PPS_RPB5),     //  0   J2-0    RB5     TMS/RPB5/USBID/RB5
-	_PPS_IN(_PPS_RPB4),	    //  1   J2-1    RB4     SOSCI/RPB4/RB4 
-    _PPS_IN(_PPS_RPA0),     //  2   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
-	_PPS_IN(_PPS_RPA1),	    //  3   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
-	_PPS_IN(_PPS_RPB0),	    //  4   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
-	_PPS_IN(_PPS_RPB1),     //  5   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
-	_PPS_IN(_PPS_RPB2),	    //  6   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
-	_PPS_IN(_PPS_RPB3),     //  7   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
-
-	_PPS_IN(_PPS_RPA4),	    //  8   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
-	_PPS_IN(_PPS_RPB4),	    //  9   J4-1    RB4     SOSCI/RPB4/RB4 
-    _PPS_IN(_PPS_RPB7),     // 10   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
-    _PPS_IN(_PPS_RPB8),     // 11   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
-    _PPS_IN(_PPS_RPB9),     // 12   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
-	_PPS_IN(_PPS_RPB13),	// 13   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
-	_PPS_IN(_PPS_RPB14),	// 14   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
-	_PPS_IN(_PPS_RPB15),	// 15   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
+	_PPS_IN(_PPS_RPA0),     //  0   J2-2    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
+	_PPS_IN(_PPS_RPA1),	    //  1   J2-3    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
+	_PPS_IN(_PPS_RPB0),	    //  2   J2-4    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
+	_PPS_IN(_PPS_RPB1),     //  3   J2-5    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
+	_PPS_IN(_PPS_RPB2),	    //  4   J2-6    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
+	_PPS_IN(_PPS_RPB3),     //  5   J2-7    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
+	_PPS_IN(_PPS_RPB4),	    //  6   J2-1    RB4     SOSCI/RPB4/RB4 
+	_PPS_IN(_PPS_RPA4),	    //  7   J4-0    RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
+	_PPS_IN(_PPS_RPB5),     //  8   J2-0    RB5     TMS/RPB5/USBID/RB5
+    _PPS_IN(_PPS_RPB7),     //  9   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
+    _PPS_IN(_PPS_RPB8),     // 10   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
+    _PPS_IN(_PPS_RPB9),     // 11   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
+	_PPS_IN(_PPS_RPB13),	// 12   J4-5    RB13    AN11/RPB13/CTPLS/PMRD/RB13
+	_PPS_IN(_PPS_RPB14),	// 13   J4-6    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
+	_PPS_IN(_PPS_RPB15),	// 14   J4-7    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
 };
 
 /* ------------------------------------------------------------ */
@@ -248,24 +239,22 @@ const uint8_t digital_pin_to_pps_in_PGM[] = {
 */
 //#if defined(_NOT_USED_)
 const uint8_t digital_pin_to_analog_PGM[] = {
-    // Pins 0 through 38
-    NOT_ANALOG_PIN, //  0   J4-1    RB5     TMS/RPB5/USBID/RB5
-	NOT_ANALOG_PIN,	// 17   J3-9    RB4     SOSCI/RPB4/RB4 
-    _BOARD_AN3,     //  9   J3-1    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
-	_BOARD_AN4,	    // 10   J3-2    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
-	_BOARD_AN5,	    // 11   J3-3    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
-	_BOARD_AN6,	    // 12   J3-4    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
-	_BOARD_AN7,	    // 13   J3-5    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
-	_BOARD_AN8,	    // 14   J3-6    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
-
-	NOT_ANALOG_PIN,	// 18   J3-10   RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
-	NOT_ANALOG_PIN,	// 17   J3-9    RB4     SOSCI/RPB4/RB4 
-    NOT_ANALOG_PIN, //  1   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
-    NOT_ANALOG_PIN, //  2   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
-    NOT_ANALOG_PIN, //  3   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
-	_BOARD_AN0,	    //  6   J4-7    RB13    AN11/RPB13/CTPLS/PMRD/RB13
-	_BOARD_AN1,     //  7   J4-8    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
-	_BOARD_AN2,	    //  8   J4-9    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
+    // Pins 0 through 15
+	_BOARD_AN3,     //  0   J3-1    RA0     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0
+	_BOARD_AN4,	    //  1   J3-2    RA1     PGEC3/VREF-/CVREF-/AN1/RPA1/CTED2/PMD6/RA1  
+	_BOARD_AN5,	    //  2   J3-3    RB0     PGED1/AN2/C1IND/C2INB/C3IND/RPB0/PMD0/RB0  
+	_BOARD_AN6,	    //  3   J3-4    RB1     PGEC1/AN3/C1INC/C2INA/RPB1/CTED12/PMD1/RB1  
+	_BOARD_AN7,	    //  4   J3-5    RB2     AN4/C1INB/C2IND/RPB2/SDA2/CTED13/PMD2/RB2  
+	_BOARD_AN8,	    //  5   J3-6    RB3     AN5/C1INA/C2INC/RTCC/RPB3/SCL2/PMWR/RB3
+	NOT_ANALOG_PIN,	//  6   J3-9    RB4     SOSCI/RPB4/RB4 
+	NOT_ANALOG_PIN,	//  7   J3-10   RA4     SOSCO/RPA4/T1CK/CTED9/PMA1/RA4 
+	NOT_ANALOG_PIN, //  8   J4-1    RB5     TMS/RPB5/USBID/RB5
+    NOT_ANALOG_PIN, //  9   J4-2    RB7     TDI/RPB7/CTED3/PMD5/INT0/RB7   
+    NOT_ANALOG_PIN, // 10   J4-3    RB8     TCK/RPB8/SCL1/CTED10/PMD4/RB8
+    NOT_ANALOG_PIN, // 11   J4-4    RB9     TDO/RPB9/SDA1/CTED4/PMD3/RB9
+	_BOARD_AN0,	    // 12   J4-7    RB13    AN11/RPB13/CTPLS/PMRD/RB13
+	_BOARD_AN1,     // 13   J4-8    RB14    CVREF/AN10/C3INB/RPB14/VBUSON/SCK1/CTED5/RB14
+	_BOARD_AN2,	    // 14   J4-9    RB15    AN9/C3INA/RPB15/SCK2/CTED6/PMCS1/RB15
 };
 //#endif
 
@@ -279,15 +268,15 @@ const uint8_t digital_pin_to_analog_PGM[] = {
 //#if defined(_NOT_USED_)
 const uint8_t analog_pin_to_channel_PGM[] = {
 			//*	Arduino Pin		PIC32 Analog channel
-	2, 		//*	A3				3 
-	3, 		//*	A4				4 
-	4, 		//*	A5				5 
-    5,      //* A6              6
-    6,      //* A7              7
-    7,      //* A8              8
-    13,     //* A0              0
-    14,     //* A1              1
-    15,     //* A2              2
+	0, 		//*	A3				3 
+	1, 		//*	A4				4 
+	2, 		//*	A5				5 
+    3,      //* A6              6
+    4,      //* A7              7
+    5,      //* A8              8
+    12,     //* A0              0
+    13,     //* A1              1
+    14,     //* A2              2
 };
 //#endif
 
