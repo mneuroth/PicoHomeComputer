@@ -2,13 +2,8 @@
 
 This directory contains the files to create the board of the PicoHomeComputer.
 
-Releases
---------
-
-Comment           | Version | Date
-------------------|---------|------------------
-Initial release   | 1.0     | 21.1.2020
-Bugfixes          | 1.1     | work in progress
+The schematic and board layout file is in the [TARGET 3001](https://ibfriedrich.com/en/index.html) format and 
+can be viewed and edited with the [free version of the TARGET 3001 program](https://de.beta-layout.com/downloads/).
 
 Pinout
 ------
@@ -43,6 +38,14 @@ Arduino Pin | PIC32 Pin    | direction | comment
 14          | 26 RB15      | OUT       | SPI_CLK
 --          | 27 _Vss_     | --        | --
 --          | 28 _Vdd_     | --        | --
+
+Releases
+--------
+
+Comment           | Version | Date
+------------------|---------|------------------
+Initial release   | 1.0     | 21.1.2020
+Bugfixes          | 1.1     | work in progress
 
 Images
 ------
