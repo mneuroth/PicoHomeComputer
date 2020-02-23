@@ -71,10 +71,10 @@
 #define	NUM_INT_PINS		5
 
 #define	NUM_SERIAL_PORTS	2       
-#define	NUM_SPI_PORTS		1
+#define	NUM_SPI_PORTS		2
 #define	NUM_I2C_PORTS		1       
 
-#define NUM_DSPI_PORTS		1
+#define NUM_DSPI_PORTS		2
 #define NUM_DTWI_PORTS		1       
 
 /* Define I/O devices on the board.
@@ -157,14 +157,15 @@
 /* These symbols are defined for compatibility with the original
 ** SPI library and the original pins_arduino.h. 
 */
-//const static uint8_t SS   = 9;      // SD-Card select
+const static uint8_t SS   = 9;      // SD-Card select
 const static uint8_t MISO = 8;
 const static uint8_t MOSI =	12;
 const static uint8_t SCK  = 14;
 
 /* The Digilent DSPI library uses these ports.
 */
-//#define	PIN_DSPI0_SS	2
+#define	PIN_DSPI0_SS	2
+#define	PIN_DSPI1_SS	9
 /* ------------------------------------------------------------ */
 /*					Analog Pins									*/
 /* ------------------------------------------------------------ */
@@ -330,7 +331,7 @@ extern const uint8_t	external_int_to_digital_pin_PGM[];
 #define _SPI_MOSI_OUT	PPS_OUT_SDO2
 #define	_SPI_MOSI_PIN	MOSI
 
-/* SPI1 
+/* SPI2 
 */
 // RA0  CS1     PGED3/VREF+/CVREF+/AN0/C3INC/RPA0/CTED1/PMD7/RA0 
 // RA4  SDO1    RPA4R = SDO1 = 3    
