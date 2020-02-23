@@ -64,7 +64,77 @@
          j = 2*i;         
      }
  }
-  
+ 
+/************SRAM opcodes: commands to the 23LC1024 memory chip ******************/
+#define RDMR        5       // Read the Mode Register
+#define WRMR        1       // Write to the Mode Register
+#define READ        3       // Read command
+#define WRITE       2       // Write command
+#define RSTIO     0xFF      // Reset memory to SPI mode
+#define ByteMode    0x00    // Byte mode (read/write one byte at a time)
+#define Sequential  0x40    // Sequential mode (read/write blocks of memory)
+ 
+#define ADDRESS 10 
+#define DATA 170
+
+extern void writeData(char * txt);
+
+#include <stdlib.h>
+#include <stdio.h>
+ 
+ void TestSPI()
+{
+    SELECT_RAM_SetLow();
+    
+    // SetMode
+    SPI2_Exchange8bit(WRMR);
+    SPI2_Exchange8bit(ByteMode);
+    
+    SELECT_RAM_SetHigh();
+
+    SELECT_RAM_SetLow();
+
+    // WriteByte
+    SPI2_Exchange8bit(WRITE);
+    SPI2_Exchange8bit((uint8_t)(ADDRESS >> 16));
+    SPI2_Exchange8bit((uint8_t)(ADDRESS >> 8));
+    SPI2_Exchange8bit((uint8_t)(ADDRESS));
+    SPI2_Exchange8bit(DATA);
+
+    SELECT_RAM_SetHigh();
+    
+    SELECT_RAM_SetLow();
+
+    // SetMode
+    SPI2_Exchange8bit(WRMR);
+    SPI2_Exchange8bit(ByteMode);
+
+    SELECT_RAM_SetHigh();
+
+    SELECT_RAM_SetLow();
+
+    // ReadByte
+    SPI2_Exchange8bit(READ);
+    SPI2_Exchange8bit((uint8_t)(ADDRESS >> 16));
+    SPI2_Exchange8bit((uint8_t)(ADDRESS >> 8));
+    SPI2_Exchange8bit((uint8_t)(ADDRESS));
+    uint8_t readData = SPI2_Exchange8bit(0x0);
+
+    SELECT_RAM_SetHigh();
+    
+    char buf[32];
+    sprintf(buf,"data=%d",(int)readData);
+    writeData(buf);
+    
+    sprintf(buf,"status=%d",SPI2_StatusGet());
+    writeData(buf);
+    
+    if(readData==DATA)
+    {
+        LED_SetHigh();
+    }
+}
+ 
 /*
                          Main application
  */
@@ -75,6 +145,8 @@ int main(void)
     TMR1_Start();  // for millis())
     LED_SetHigh();
     ulisp_setup();
+    
+    writeData("hello world !");
 
 // variable to hold the state of the current clock source
 //OSC_SYS_TYPE oscCurrent;
@@ -84,9 +156,11 @@ int main(void)
     while (1)
     {
         // Add your application code
-        ulisp_loop();
-        LED_Toggle();
-        //DelayMs(10);
+        //ulisp_loop();
+        //LED_Toggle();
+        SELECT_EXTENSION_Toggle();
+        TestSPI();
+        //DelayMs(1);
         //delay
     }
 

@@ -53,6 +53,15 @@ public:
 SerialImpl Serial;
 SerialImpl Serial1;
 
+extern "C" void writeData(char * txt)
+{
+    for(int i=0; i<strlen(txt); i++)
+    {
+        Serial.write(txt[i]);
+    }
+    Serial.write('\n');
+}
+
 class WireImpl
 {
 public:
