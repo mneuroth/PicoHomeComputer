@@ -89,7 +89,7 @@ void PIN_MANAGER_Initialize(void)
      * Setting the Analog/Digital Configuration SFR(s)
      ***************************************************************************/
     ANSELA = 0x0000;
-    ANSELB = 0x4004;
+    ANSELB = 0x6004;
 
     /****************************************************************************
      * Set the PPS
@@ -97,12 +97,12 @@ void PIN_MANAGER_Initialize(void)
     SYSTEM_RegUnlock(); // unlock PPS
     CFGCONbits.IOLOCK = 0;
 
+    RPB13Rbits.RPB13R = 0x0004;   //RB13->SPI2:SDO2;
     RPB14Rbits.RPB14R = 0x0002;   //RB14->UART2:U2TX;
     U1RXRbits.U1RXR = 0x0002;   //RA4->UART1:U1RX;
     INT1Rbits.INT1R = 0x0002;   //RB0->EXT_INT:INT1;
     U2RXRbits.U2RXR = 0x0002;   //RB1->UART2:U2RX;
-    RPB5Rbits.RPB5R = 0x0004;   //RB5->SPI2:SDO2;
-    SDI2Rbits.SDI2R = 0x0003;   //RB13->SPI2:SDI2;
+    SDI2Rbits.SDI2R = 0x0000;   //RA2->SPI2:SDI2;
     RPB4Rbits.RPB4R = 0x0001;   //RB4->UART1:U1TX;
     
     CFGCONbits.IOLOCK = 1; // lock   PPS

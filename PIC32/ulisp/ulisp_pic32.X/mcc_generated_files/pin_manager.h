@@ -348,6 +348,152 @@
 #define SELECT_EXTENSION_SetDigitalOutput() TRISAbits.TRISA1 = 0
 /**
   @Summary
+    Sets the GPIO pin, RA2, high using LATAbits.LATA2.
+
+  @Description
+    Sets the GPIO pin, RA2, high using LATAbits.LATA2.
+
+  @Preconditions
+    The RA2 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RA2 high (1)
+    SDI2_SetHigh();
+    </code>
+
+*/
+#define SDI2_SetHigh()          LATAbits.LATA2 = 1
+/**
+  @Summary
+    Sets the GPIO pin, RA2, low using LATAbits.LATA2.
+
+  @Description
+    Sets the GPIO pin, RA2, low using LATAbits.LATA2.
+
+  @Preconditions
+    The RA2 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RA2 low (0)
+    SDI2_SetLow();
+    </code>
+
+*/
+#define SDI2_SetLow()           LATAbits.LATA2 = 0
+/**
+  @Summary
+    Toggles the GPIO pin, RA2, using LATAbits.LATA2.
+
+  @Description
+    Toggles the GPIO pin, RA2, using LATAbits.LATA2.
+
+  @Preconditions
+    The RA2 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RA2
+    SDI2_Toggle();
+    </code>
+
+*/
+#define SDI2_Toggle()           LATAbits.LATA2 ^= 1
+/**
+  @Summary
+    Reads the value of the GPIO pin, RA2.
+
+  @Description
+    Reads the value of the GPIO pin, RA2.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RA2
+    postValue = SDI2_GetValue();
+    </code>
+
+*/
+#define SDI2_GetValue()         PORTAbits.RA2
+/**
+  @Summary
+    Configures the GPIO pin, RA2, as an input.
+
+  @Description
+    Configures the GPIO pin, RA2, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RA2 as an input
+    SDI2_SetDigitalInput();
+    </code>
+
+*/
+#define SDI2_SetDigitalInput()  TRISAbits.TRISA2 = 1
+/**
+  @Summary
+    Configures the GPIO pin, RA2, as an output.
+
+  @Description
+    Configures the GPIO pin, RA2, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RA2 as an output
+    SDI2_SetDigitalOutput();
+    </code>
+
+*/
+#define SDI2_SetDigitalOutput() TRISAbits.TRISA2 = 0
+/**
+  @Summary
     Sets the GPIO pin, RB13, high using LATBbits.LATB13.
 
   @Description
@@ -365,11 +511,11 @@
   @Example
     <code>
     // Set RB13 high (1)
-    SDI2_SetHigh();
+    SDO2_SetHigh();
     </code>
 
 */
-#define SDI2_SetHigh()          LATBbits.LATB13 = 1
+#define SDO2_SetHigh()          LATBbits.LATB13 = 1
 /**
   @Summary
     Sets the GPIO pin, RB13, low using LATBbits.LATB13.
@@ -389,11 +535,11 @@
   @Example
     <code>
     // Set RB13 low (0)
-    SDI2_SetLow();
+    SDO2_SetLow();
     </code>
 
 */
-#define SDI2_SetLow()           LATBbits.LATB13 = 0
+#define SDO2_SetLow()           LATBbits.LATB13 = 0
 /**
   @Summary
     Toggles the GPIO pin, RB13, using LATBbits.LATB13.
@@ -413,11 +559,11 @@
   @Example
     <code>
     // Toggle RB13
-    SDI2_Toggle();
+    SDO2_Toggle();
     </code>
 
 */
-#define SDI2_Toggle()           LATBbits.LATB13 ^= 1
+#define SDO2_Toggle()           LATBbits.LATB13 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RB13.
@@ -439,11 +585,11 @@
     uint16_t portValue;
 
     // Read RB13
-    postValue = SDI2_GetValue();
+    postValue = SDO2_GetValue();
     </code>
 
 */
-#define SDI2_GetValue()         PORTBbits.RB13
+#define SDO2_GetValue()         PORTBbits.RB13
 /**
   @Summary
     Configures the GPIO pin, RB13, as an input.
@@ -463,11 +609,11 @@
   @Example
     <code>
     // Sets the RB13 as an input
-    SDI2_SetDigitalInput();
+    SDO2_SetDigitalInput();
     </code>
 
 */
-#define SDI2_SetDigitalInput()  TRISBbits.TRISB13 = 1
+#define SDO2_SetDigitalInput()  TRISBbits.TRISB13 = 1
 /**
   @Summary
     Configures the GPIO pin, RB13, as an output.
@@ -487,11 +633,11 @@
   @Example
     <code>
     // Sets the RB13 as an output
-    SDI2_SetDigitalOutput();
+    SDO2_SetDigitalOutput();
     </code>
 
 */
-#define SDI2_SetDigitalOutput() TRISBbits.TRISB13 = 0
+#define SDO2_SetDigitalOutput() TRISBbits.TRISB13 = 0
 /**
   @Summary
     Sets the GPIO pin, RB15, high using LATBbits.LATB15.
@@ -930,152 +1076,6 @@
 
 */
 #define SELECT_RAM_SetDigitalOutput() TRISBbits.TRISB3 = 0
-/**
-  @Summary
-    Sets the GPIO pin, RB5, high using LATBbits.LATB5.
-
-  @Description
-    Sets the GPIO pin, RB5, high using LATBbits.LATB5.
-
-  @Preconditions
-    The RB5 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Set RB5 high (1)
-    SDO2_SetHigh();
-    </code>
-
-*/
-#define SDO2_SetHigh()          LATBbits.LATB5 = 1
-/**
-  @Summary
-    Sets the GPIO pin, RB5, low using LATBbits.LATB5.
-
-  @Description
-    Sets the GPIO pin, RB5, low using LATBbits.LATB5.
-
-  @Preconditions
-    The RB5 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Set RB5 low (0)
-    SDO2_SetLow();
-    </code>
-
-*/
-#define SDO2_SetLow()           LATBbits.LATB5 = 0
-/**
-  @Summary
-    Toggles the GPIO pin, RB5, using LATBbits.LATB5.
-
-  @Description
-    Toggles the GPIO pin, RB5, using LATBbits.LATB5.
-
-  @Preconditions
-    The RB5 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Toggle RB5
-    SDO2_Toggle();
-    </code>
-
-*/
-#define SDO2_Toggle()           LATBbits.LATB5 ^= 1
-/**
-  @Summary
-    Reads the value of the GPIO pin, RB5.
-
-  @Description
-    Reads the value of the GPIO pin, RB5.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    uint16_t portValue;
-
-    // Read RB5
-    postValue = SDO2_GetValue();
-    </code>
-
-*/
-#define SDO2_GetValue()         PORTBbits.RB5
-/**
-  @Summary
-    Configures the GPIO pin, RB5, as an input.
-
-  @Description
-    Configures the GPIO pin, RB5, as an input.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Sets the RB5 as an input
-    SDO2_SetDigitalInput();
-    </code>
-
-*/
-#define SDO2_SetDigitalInput()  TRISBbits.TRISB5 = 1
-/**
-  @Summary
-    Configures the GPIO pin, RB5, as an output.
-
-  @Description
-    Configures the GPIO pin, RB5, as an output.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Sets the RB5 as an output
-    SDO2_SetDigitalOutput();
-    </code>
-
-*/
-#define SDO2_SetDigitalOutput() TRISBbits.TRISB5 = 0
 /**
   @Summary
     Sets the GPIO pin, RB7, high using LATBbits.LATB7.
