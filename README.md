@@ -42,15 +42,15 @@ Conections for periphery:
 Components:
 -----------
 
-- [Board](Board/Readme.md)
+- [Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/board)
 - Software
   - [chipKIT](https://chipkit.net/), this is the PIC32 platform support for the [Arduiono IDE](https://www.arduino.cc/en/Main/Software)
-  - [chipKIT patches for the PicoHomeComputer](chipKIT_patches/Readme.md)
+  - [chipKIT patches for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
   - [uLisp](http://www.ulisp.com/), a lisp implementation for microcontrollers
   - [uLisp for chipKIT](https://github.com/mneuroth/ulisp-pic32-chipKIT), the uLisp for the PIC32 microcontroller
   - [Bootloader for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader)
   - [Library for ENC28J60 for chipKIT/PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-EtherCard)
-- [Datasheets](Datasheets)
+- [Datasheets](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches/datasheets)
 - Documentation
 
 Interpreters for microcontrollers:
@@ -79,7 +79,6 @@ Other intresting computer projects:
 Other intresting microcontroller platforms (ARM):
 -------------------------------------------------
 
-Arm MCU:
 - https://www.pjrc.com/teensy/
 - https://www.mikroe.com/mini/- https://www.mikrocontroller.net/topic/439180
 - https://www.waveshare.com/product/mcu-tools/stm32/core407i.htm
