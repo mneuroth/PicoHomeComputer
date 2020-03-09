@@ -1,15 +1,16 @@
 # PicoHomeComputer
 
 The PicoHomeComputer project is intended to make it possible to build a simple but fully functional (home) computer completely by yourself.
-The project is also intended as teaching project to show what hard- and software is needed to build a computer from the scratch.
+The project is also intended as teaching project to show what hardware and software is needed to build a computer from scratch.
 
-This means you can use the board, buy the needed electronic parts and then mount and solder the electronic parts on the board.
-After that you can install the software/firmware and connect periphery like keyboard, mouse and monitor to the board and
-run and use the computer. It should have all the functionality of a home computer from the 80ies and even a litle bit more, 
-for example you can connect the computer via LAN to the internet.
+With the documentation in this project it is possible to use the board, buy the needed electronic parts and then mount and solder 
+the electronic parts on the board.
+After that one can install the software/firmware and connect periphery like keyboard, mouse and monitor to the board and
+run and use the computer. The PicoHomeComputer has all the functionality of a home computer from the 80ies and even a litle bit more, 
+for example the computer can be connected via LAN to the internet.
 
-The PicoHomeComputer has the following technical specifications:
-----------------------------------------------------------------
+Technical specifications:
+-------------------------
 
 - Processor: PIC32 microcontroller (MIPS based, PIC32MX270B256), optional: ESP32 (from espressif) 
   - CPU clock speed: 48 MHz
@@ -19,7 +20,7 @@ The PicoHomeComputer has the following technical specifications:
 - SD card interface via SPI Bus
 - LAN interface via SPI Bus (ENC28J60)
 - Real Time Clock via I2C Bus (DS1307)
-- IO Processor (Propeller from Parallax)
+- IO Processor (Propeller  P8X32A from Parallax)
   - VGA output
   - Keyboard
   - Mouse
@@ -46,8 +47,7 @@ Components:
 - Software
   - [chipKIT](https://chipkit.net/), this is the PIC32 platform support for the [Arduiono IDE](https://www.arduino.cc/en/Main/Software)
   - [chipKIT patches for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
-  - [uLisp](http://www.ulisp.com/), a lisp implementation for microcontrollers
-  - [uLisp for chipKIT](https://github.com/mneuroth/ulisp-pic32-chipKIT), the uLisp for the PIC32 microcontroller
+  - [uLisp for chipKIT](https://github.com/mneuroth/ulisp-pic32-chipKIT), the [uLisp](http://www.ulisp.com/) (a lisp for microcontrollers) for the PIC32 microcontroller
   - [Bootloader for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader)
   - [Library for ENC28J60 for chipKIT/PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-EtherCard)
 - [Datasheets](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches/datasheets)
@@ -56,6 +56,7 @@ Components:
 Interpreters for microcontrollers:
 ----------------------------------
 
+- https://github.com/RetroBSD/retrobsd
 - http://www.ulisp.com/
 - https://micropython.org/
 - https://www.mikrocontroller.net/articles/AVR_BASIC
