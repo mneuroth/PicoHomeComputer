@@ -1,185 +1,64 @@
-# Retro Home Computer
-A do it yourself retro home computer project.
+# PicoHomeComputer
 
-- [c't](https://www.heise.de/developer/artikel/ESP32-to-go-4452689.html)
-- [Hardware Sparkfun](https://www.sparkfun.com/products/13907)
-- [Board](https://github.com/lyusupov/ESP32-NODEMCU-ADAPTER)
-- [Board](https://www.esp32.com/viewtopic.php?t=7004)
-- [Espressif](https://github.com/espressif)
-- [Hardware](https://www.az-delivery.de/products/esp32-developmentboard?_pos=12&_sid=02f41426d&_ss=r)
-- [Firmware](https://github.com/nodemcu/nodemcu-firmware/tree/dev-esp32)
-- [Official SDK](https://github.com/espressif/ESP-IDF)
-- [Arduino for ESP32](https://github.com/espressif/arduino-esp32)
-- [Tutorial](https://lastminuteengineers.com/esp32-arduino-ide-tutorial/)
-- [Docu](https://docs.zerynth.com/latest/official/board.zerynth.nodemcu_esp32/docs/index.html)
-- [Board dimensions](https://www.shenzhen2u.com/NodeMCU-32S)
-- xxx [Tutorial](https://www.elektroniknet.de/design-elektronik/embedded/erweiterung-der-arduino-familie-esp32-wie-gut-ist-es-160294.html)
-- [Hardware Overview](http://esp32.net/#Hardware)
+The PicoHomeComputer project is intended to make it possible to build a simple but fully functional (home) computer completely by yourself.
+The project is also intended as teaching project to show what hard- and software is needed to build a computer from the scratch.
 
-- [Retro Home Computer Projekt](https://hive-project.de/projekt-info/basics)
-- [Maximite](http://geoffg.net/MaximiteFeatures.html)
-https://www.instructables.com/id/ESP32-Basic-PC-With-VGA-Output/
-http://www.fabglib.org/index.html
+This means you can use the board, buy the needed electronic parts and then mount and solder the electronic parts on the board.
+After that you can install the software/firmware and connect periphery like keyboard, mouse and monitor to the board and
+run and use the computer. It should have all the functionality of a home computer from the 80ies and even a litle bit more, 
+for example you can connect the computer via LAN to the internet.
 
-https://sites.google.com/site/pcusbprojects/home/j-icsp-programmer-for-pic32-microcontroller-family
-http://www.ze.em-net.ne.jp/~kenken/en/videogame.html
-https://playground.boxtec.ch/doku.php/helvepic32/bspi2c/start
-https://www.helvepic32.org/
-https://www.helvepic32.org/assembly-instructions/
-https://playground.boxtec.ch/doku.php/helvepic32/start
+The PicoHomeComputer has the following technical specifications:
+----------------------------------------------------------------
 
-https://chipkit.net/wiki/index.php?title=Boards
-https://chipkit.net/wiki/index.php?title=ChipKIT_Pi
+- Processor: PIC32 microcontroller (MIPS based, PIC32MX270B256), optional: ESP32 (from espressif) 
+  - CPU clock speed: 48 MHz
+  - RAM: 64 kByte
+  - ROM: 256 kByte
+- (S)RAM: 1 MBit = 128 kByte via SPI Bus (23LC1024)
+- SD card interface via SPI Bus
+- LAN interface via SPI Bus (ENC28J60)
+- Real Time Clock via I2C Bus (DS1307)
+- IO Processor (Propeller from Parallax)
+  - VGA output
+  - Keyboard
+  - Mouse
+  - Audio 
 
-SPI: Synchronous serial port. Pin 9 (SS), Pin 18 (MOSI), Pin 7 (SCK), Pin 10 (MISO). This uses SPI1 on the PIC32 Microcontroller. 
-The second SPI is implemented as Pin 14 (SS), Pin 2 (MOSI), Pin 13 (MISO), and Pin 8 (SCK). 
+Conections for periphery:
+-------------------------
 
-RealTimeClock SPI --> DS1306
-http://www.vwlowen.co.uk/arduino/ds1306/ds1306.htm
+- VGA monitor interface
+- PS/2 for keyboard
+- PS/2 for mouse
+- Audio interface
+- USB 2.0 interface
+- SD card interface  
+- 10 MBit LAN interface
+- 2x RS232 interface
+- Extension slot with I2C Bus and SPI Bus
+- Powersupply interface (for a 7-12 Volt power supply) 
 
-https://sites.google.com/site/pcusbprojects/7-tips-tricks-troubleshooting
-http://geoffg.net/terminal.html
-https://www.nutsvolts.com/magazine/article/January2017_Retro-PIC-Single-Board-Computer
+Components:
+-----------
 
-UART/RS232:
-https://deepbluembedded.com/uart-pic-microcontroller-tutorial/
-https://www.aidanmocke.com/blog/2018/08/29/uart/
+- [Board](Board/Readme.md)
+- Software
+  - [chipKIT](https://chipkit.net/), this is the PIC32 platform support for the [Arduiono IDE](https://www.arduino.cc/en/Main/Software)
+  - [chipKIT patches for the PicoHomeComputer](chipKIT_patches/Readme.md)
+  - [uLisp](http://www.ulisp.com/), a lisp implementation for microcontrollers
+  - [uLisp for chipKIT](https://github.com/mneuroth/ulisp-pic32-chipKIT), the uLisp for the PIC32 microcontroller
+  - [Bootloader for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader)
+  - [Library for ENC28J60 for chipKIT/PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-EtherCard)
+- [Datasheets](Datasheets)
+- Documentation
 
-https://componiverse.com/app/search/esp32/fullText/rating
+Interpreters for microcontrollers:
+----------------------------------
 
-Pin Assignment PIC32:
-- U2RX  --> U2RXR = 0010 --> RPB1 = PIN 5
-- U2TX  --> RPB0R = 0010 --> RPB0 = PIN 4
-
-- U1RX  --> U1RXR = 0010 --> RPA4 = PIN 12
-- U1TX  --> RPB4R = 0001 --> RPB4 = PIN 11
-
-- INT2  --> INT2R = 0100 --> RPB2 = PIN 6
-
-6 Pins  noch frei für folgende Funktionen:
-//- Aktivitäts-LED
-//- Chip Select RAM
-//- Chip Select SD Card
-((- SD Card detect ?      --> nicht notwendig, gibt es an SD-Card Shield auch nicht !
-//- Chip Select Ethernet
-//- Ethernet Interrupt ?
-- Chip Select Extension Bus ? / Touchsreen ?
-
-TODOs:
-- ggf. IO Ports an I2C Bus --> GPIO MCP23017 Port Expander
-- ggf. ADC/DAC an I2C Bus
-- ggf. IO Ports via Propeller ?
-- Audio via Propeller ? --> siehe HIVE Projekt Schaltplan  -->  http://geoffg.net/Images/Maximite/SchematicLarge.png
-
-Eckstein:
-- https://eckstein-shop.de/ENC28J60-Ethernet-LAN-Netzwerk-Modul
-- https://eckstein-shop.de/SD-Memory-Card-Module-Slot-SPI-Reader
-
---> http://geoffg.net/MaximiteFeatures.html
---> https://hive-project.de/projekt-info/basics
-
-VGA: 
-https://www.parallax.com/product/28076      VGA SIP Adapter Board
-https://github.com/maccasoft/propeller-graphics-card/wiki
-hive 
-
-Audio:
-https://www.conrad.de/de/p/tru-components-klinken-steckverbinder-3-5-mm-buchse-einbau-horizontal-polzahl-3-stereo-violett-1-st-1577797.html
-https://www.conrad.de/de/p/cliff-fc68125-klinken-steckverbinder-3-5-mm-buchse-einbau-horizontal-polzahl-4-stereo-schwarz-1-st-736667.html
-https://www.conrad.de/de/p/bkl-electronic-klinken-steckverbinder-3-5-mm-buchse-einbau-horizontal-polzahl-3-stereo-silber-1-st-733962.html
-
-Audio Circuit:
-- Hive
-- Maximite
-http://www.nerdkits.com/videos/halloween_huffman_audio/
-
-Lcd
-- https://eckstein-shop.de/Waveshare-4-inch-480x320-Resistive-Touch-TFT-LCD-Shield-Arduino-Display-ILI9486-SPI  ==> 29,99 Euro
-
-ESP
-http://esp32.net/#Hardware
-https://www.elektroniknet.de/design-elektronik/embedded/erweiterung-der-arduino-familie-esp32-wie-gut-ist-es-160294.html
-https://www.olimex.com/Products/IoT/ESP32/ESP32-DevKit-LiPo/open-source-hardware
-https://github.com/Nicholas3388/LuaNode
-
-PIC24/18 with USB ? --> Replace PIC32MX ?
-https://www.waitingforfriday.com/?p=451
-
-PS/2
-https://de.wikipedia.org/wiki/PS/2-Schnittstelle
-
-================
-
-MC Interfaces:
-- RS232 (World & Propeller==IO)
-- SPI (RAM, SD-Card, LAN)
-- Input: LAN-Interrupt
-- I2C (RT-Clock)
-- USB
-- Activity-LED
-- JTAG
-
-Propeller (IO)
-- VGA
-- Keyboard
-- Mouse
-- Audio
-- IOs ?
-
-Extension Bus/Port (26 Pins = 2x13 == Raspberry Pi org)
-- GND
-- +3.3V
-- +5V
-- SPI MC (3-Leitungen)
-- SPI_CS_MC (Chip Select)
-- I2C Bus MC (2-Leitungen)  ==> 9 Leitungen
-
-- Propeller IOs, inkl 
-
-PIC Doku:
-- https://www.microchip.com/mplab/mplab-code-configurator
-- https://www.microchip.com/mplab/mplab-harmony
-- https://www.microchip.com/mplab/compilers
-- https://www.youtube.com/watch?v=E1_QYNaPClU  --> using MCC Plugin !
-
-Probleme mit STL:
-https://www.microchip.com/forums/m1110815.aspx
-
-Propeller Programming:
-- https://entwickler.de/online/iot/mikrocontroller-propeller-einfuehrung-579823985.html
-- https://elmicro.com/de/propeller.html
-- https://www.parallax.com/downloads/propeller-tool-software-windows-spin-assembly
-- https://learn.parallax.com/tutorials/language/propeller-c/propeller-c-simple-devices/vga-text-display
-- https://github.com/parallaxinc/BlocklyPropClient/blob/master/propeller-c-lib/Display/libvgatext/vgatext.h
-- https://opencircuit.shop/Product/P8X32A-Propeller-QuickStart-Rev.B
-
-ESP32 Programming
-- https://docs.espressif.com/projects/esp-idf/en/latest/hw-reference/get-started-devkitc.html
-- https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html#step-1-install-prerequisites
-- https://technicalustad.com/program-esp32-with-arduino-ide-with-c/
-- https://github.com/espressif/arduino-esp32
-- https://github.com/espressif/esp-idf
-- https://lastminuteengineers.com/esp32-arduino-ide-tutorial/
-- https://community.hiveeyes.org/t/getting-a-list-of-all-predefined-compiler-macros/1549
-
-Blue-Pill-Board:
-https://www.heise.de/developer/artikel/Keine-bittere-Pille-die-Blue-Pill-mit-ARM-Cortex-M3-4009580.html
-
-Arm MCU:
-https://www.mikrocontroller.net/topic/439180
-https://www.waveshare.com/product/mcu-tools/stm32/core407i.htm
-https://www.pjrc.com/teensy/
-https://www.mikroe.com/mini/
-
-
-#define _GLIBCXX_USE_C99
-
-LED Blink mit ESP32 DevKit V1 Node MCU  --> buildin LED == GPIO2 == D2 Pin ?
-https://circuits4you.com/2018/02/02/esp32-led-blink-example/
-
-Interpreter for microcontroller:
-- https://www.mikrocontroller.net/articles/AVR_BASIC
+- http://www.ulisp.com/
 - https://micropython.org/
+- https://www.mikrocontroller.net/articles/AVR_BASIC
 - https://github.com/micropython/micropython
 - https://stonepile.fi/micropython-pic32/
 - http://picoos.sourceforge.net/
@@ -189,33 +68,18 @@ Interpreter for microcontroller:
 - http://www.eluaproject.net/
 - https://github.com/yesco/esp-lisp
 - https://github.com/paladin-t/my_basic
+ 
+  
+Other intresting computer projects:
+-----------------------------------  
 
-http://www.mycpu.eu/
+- [Maximite](http://geoffg.net/maximite.html)
+- [HIVE-Project](https://hive-project.de/)
 
-fuel size:
-Der Sketch verwendet 458765 Bytes (35%) des Programmspeicherplatzes. Das Maximum sind 1310720 Bytes.
-Globale Variablen verwenden 22812 Bytes (6%) des dynamischen Speichers, 304868 Bytes für lokale Variablen verbleiben. Das Maximum sind 327680 Bytes.
+Other intresting microcontroller platforms (ARM):
+-------------------------------------------------
 
-Der Sketch verwendet 456509 Bytes (34%) des Programmspeicherplatzes. Das Maximum sind 1310720 Bytes.
-Globale Variablen verwenden 22812 Bytes (6%) des dynamischen Speichers, 304868 Bytes für lokale Variablen verbleiben. Das Maximum sind 327680 Bytes.
-
-Der Sketch verwendet 456609 Bytes (34%) des Programmspeicherplatzes. Das Maximum sind 1310720 Bytes.
-Globale Variablen verwenden 22812 Bytes (6%) des dynamischen Speichers, 304868 Bytes für lokale Variablen verbleiben. Das Maximum sind 327680 Bytes.
-
-----------------
-
-fuel ohne Debugger:
-Der Sketch verwendet 633141 Bytes (48%) des Programmspeicherplatzes. Das Maximum sind 1310720 Bytes.
-Globale Variablen verwenden 22828 Bytes (6%) des dynamischen Speichers, 304852 Bytes für lokale Variablen verbleiben. Das Maximum sind 327680 Bytes.
-
-fuel mit Debugger:
-Der Sketch verwendet 658433 Bytes (50%) des Programmspeicherplatzes. Das Maximum sind 1310720 Bytes.
-Globale Variablen verwenden 22828 Bytes (6%) des dynamischen Speichers, 304852 Bytes für lokale Variablen verbleiben. Das Maximum sind 327680 Bytes.
-
-link problem pic32 mit std::exception
-https://www.microchip.com/forums/m1110815.aspx
-
-----
-Projekte für ESP32 --> verwende Arduino IDE:
-- C:\Users\micha\Documents\Arduino\ESP32_fuel_test
-- C:\Users\micha\Documents\Arduino\FreeRTOS_minscript_test
+Arm MCU:
+- https://www.pjrc.com/teensy/
+- https://www.mikroe.com/mini/- https://www.mikrocontroller.net/topic/439180
+- https://www.waveshare.com/product/mcu-tools/stm32/core407i.htm
