@@ -9,6 +9,7 @@ After that one can install the software/firmware and connect periphery like keyb
 run and use the computer. The PicoHomeComputer has all the functionality of a home computer from the 80ies and even a litle bit more, 
 for example the computer can be connected via LAN to the internet.
 
+<img src="board/RetroHomeComputer_V1.0_board.png" alt="Board V 1.0" >
 
 Technical specifications
 ------------------------
