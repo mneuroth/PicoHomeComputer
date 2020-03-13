@@ -13,7 +13,7 @@ for example the computer can be connected via LAN to the internet.
 Technical specifications:
 -------------------------
 
-- Processor: PIC32 microcontroller (MIPS based, [PIC32MX270B256](https://www.microchip.com/wwwproducts/en/PIC32MX270F256B)), optional: ESP32 (from espressif) 
+- Processor: PIC32 microcontroller (MIPS based, [PIC32MX270B256](https://www.microchip.com/wwwproducts/en/PIC32MX270F256B)), optional: [ESP32 from espressif](http://esp32.net/)  
   - CPU clock speed: 48 MHz
   - RAM: 64 kByte
   - ROM: 256 kByte
@@ -66,19 +66,16 @@ Parts:
 Interpreters for microcontrollers:
 ----------------------------------
 
-- http://www.ulisp.com/
-- https://micropython.org/
-- http://mmbasic.com/
-- https://www.mikrocontroller.net/articles/AVR_BASIC
-- https://github.com/micropython/micropython
-- https://stonepile.fi/micropython-pic32/
-- http://picoos.sourceforge.net/
-- https://www.zerynth.com/blog/zerynth-is-an-official-microchip-third-party-development-tool/
-- https://electronics.stackexchange.com/questions/3423/survey-of-high-level-language-interpreters-compilers-for-microcontrollers
-- https://stackoverflow.com/questions/1082751/what-are-the-available-interactive-languages-that-run-in-tiny-memory
-- http://www.eluaproject.net/
-- https://github.com/yesco/esp-lisp
-- https://github.com/paladin-t/my_basic
+- [uLisp](http://www.ulisp.com/)
+- [ESP lisp](https://github.com/yesco/esp-lisp)
+- [MicroPython](https://micropython.org/) on [github](https://github.com/micropython/micropython), see also [Python for PIC32](https://stonepile.fi/micropython-pic32/)
+- [Lua](http://www.eluaproject.net/)
+- [MMBasic](http://mmbasic.com/)
+- [AVR Basic](https://www.mikrocontroller.net/articles/AVR_BASIC)
+- [my_basic](https://github.com/paladin-t/my_basic)
+
+- [Overview of interpreters on stackexchange](https://electronics.stackexchange.com/questions/3423/survey-of-high-level-language-interpreters-compilers-for-microcontrollers)
+- [Overview of interpreters on stackoverview](https://stackoverflow.com/questions/1082751/what-are-the-available-interactive-languages-that-run-in-tiny-memory)
 - [Single-File Implementations of Programming Languages](https://github.com/marcpaq/b1fipl)
 
 
@@ -88,6 +85,7 @@ Operating systems for microcontrollers:
 - [RetroBSD](https://github.com/RetroBSD/retrobsd)
 - [FreeRTOS](https://www.freertos.org/)
 - [RIOT-OS](https://github.com/RIOT-OS/RIOT)
+- [picoOS](http://picoos.sourceforge.net/)
  
   
 Other intresting computer projects:
@@ -100,12 +98,13 @@ Other intresting computer projects:
 - [HelvePIC32](https://www.helvepic32.org/)
 
 
-Other intresting microcontroller platforms (ARM):
--------------------------------------------------
+Other intresting microcontroller platforms:
+-------------------------------------------
 
-- https://www.pjrc.com/teensy/
-- https://www.mikroe.com/mini/- https://www.mikrocontroller.net/topic/439180
-- https://www.waveshare.com/product/mcu-tools/stm32/core407i.htm
+- [Teensy (ARM)](https://www.pjrc.com/teensy/)
+- [MINI-32 Board (PIC32)](https://www.mikroe.com/mini/)
+- [STM32F4 Core Board](https://www.waveshare.com/product/mcu-tools/stm32/core407i.htm)
+- [ARM in DIP housing](https://www.mikrocontroller.net/topic/439180)
 
 
 Portals with informations about electronic projects and microcontrollers
