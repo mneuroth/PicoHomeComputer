@@ -73,7 +73,6 @@ Interpreters for microcontrollers:
 - [MMBasic](http://mmbasic.com/)
 - [AVR Basic](https://www.mikrocontroller.net/articles/AVR_BASIC)
 - [my_basic](https://github.com/paladin-t/my_basic)
-
 - [Overview of interpreters on stackexchange](https://electronics.stackexchange.com/questions/3423/survey-of-high-level-language-interpreters-compilers-for-microcontrollers)
 - [Overview of interpreters on stackoverview](https://stackoverflow.com/questions/1082751/what-are-the-available-interactive-languages-that-run-in-tiny-memory)
 - [Single-File Implementations of Programming Languages](https://github.com/marcpaq/b1fipl)
@@ -107,8 +106,8 @@ Other intresting microcontroller platforms:
 - [ARM in DIP housing](https://www.mikrocontroller.net/topic/439180)
 
 
-Portals with informations about electronic projects and microcontrollers
-------------------------------------------------------------------------
+Interesting portals for microcontrollers projects
+-------------------------------------------------
 
 - [mikrocontroller.net](https://www.mikrocontroller.net/)
 - [PC USB Projects](https://sites.google.com/site/pcusbprojects/home-1)
