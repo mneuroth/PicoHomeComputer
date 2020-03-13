@@ -1,0 +1,1 @@
+# Documentation of the PicoHomeComputerSchematical diagram<img src="BlockDiagramm.png" alt="BlockDiagram" >
