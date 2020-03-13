@@ -53,6 +53,7 @@ Parts
   - [uLisp for chipKIT](https://github.com/mneuroth/ulisp-pic32-chipKIT), the [uLisp](http://www.ulisp.com/) (a lisp for microcontrollers) for the PIC32 microcontroller
   - [Bootloader for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader)
   - [Library for ENC28J60 for chipKIT/PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-EtherCard)
+  - [Libraries for Propeller](https://github.com/parallaxinc/propeller)
 - Other Software
   - [Library for SRAM 23LC1024 via SPI bus](https://github.com/dndubins/SRAMsimple)
   - [Library for SD Card via SPI bus](https://github.com/adafruit/SD)  
