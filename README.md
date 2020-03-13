@@ -10,8 +10,8 @@ run and use the computer. The PicoHomeComputer has all the functionality of a ho
 for example the computer can be connected via LAN to the internet.
 
 
-Technical specifications:
--------------------------
+Technical specifications
+------------------------
 
 - Processor: PIC32 microcontroller (MIPS based, [PIC32MX270B256](https://www.microchip.com/wwwproducts/en/PIC32MX270F256B)), optional: [ESP32 from espressif](http://esp32.net/)  
   - CPU clock speed: 48 MHz
@@ -28,8 +28,8 @@ Technical specifications:
   - Audio 
 
   
-Conections for periphery:
--------------------------
+Conections for periphery
+------------------------
 
 - VGA monitor interface
 - PS/2 for keyboard
@@ -43,8 +43,8 @@ Conections for periphery:
 - Powersupply interface (for a 7-12 Volt power supply) 
 
 
-Parts:
-------
+Parts
+-----
 
 - [Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/board)
 - Software for PicoHomeComputer
@@ -66,8 +66,8 @@ Parts:
 # Some useful informations about microcontrollers
 
 
-Interpreters for microcontrollers:
-----------------------------------
+Interpreters for microcontrollers
+---------------------------------
 
 - [uLisp](http://www.ulisp.com/)
 - [ESP lisp](https://github.com/yesco/esp-lisp)
@@ -81,8 +81,8 @@ Interpreters for microcontrollers:
 - [Single-File Implementations of Programming Languages](https://github.com/marcpaq/b1fipl)
 
 
-Operating systems for microcontrollers:
----------------------------------------
+Operating systems for microcontrollers
+--------------------------------------
 
 - [RetroBSD](https://github.com/RetroBSD/retrobsd)
 - [FreeRTOS](https://www.freertos.org/)
@@ -90,8 +90,8 @@ Operating systems for microcontrollers:
 - [picoOS](http://picoos.sourceforge.net/)
  
   
-Other intresting computer projects:
------------------------------------  
+Other intresting computer projects
+----------------------------------  
 
 - [Maximite](http://geoffg.net/maximite.html)
 - [HIVE-Project](https://hive-project.de/)
@@ -100,8 +100,8 @@ Other intresting computer projects:
 - [HelvePIC32](https://www.helvepic32.org/)
 
 
-Other intresting microcontroller platforms:
--------------------------------------------
+Other intresting microcontroller platforms
+------------------------------------------
 
 - [Teensy (ARM)](https://www.pjrc.com/teensy/)
 - [MINI-32 Board (PIC32)](https://www.mikroe.com/mini/)
