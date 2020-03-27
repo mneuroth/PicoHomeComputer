@@ -1,1 +1,1 @@
-# Firmware for IO_Processor of PicoHomeComputerThis folder contains firmware to test and to run the IO_Processor ([Propeller from Paralla](https://www.parallax.com/product/p8x32a-d40)) of the PicoHomeComputer.
+# Firmware for the IO Processor of the PicoHomeComputerThis folder contains firmware to test and to run the IO Processor ([Propeller from Paralla](https://www.parallax.com/product/p8x32a-d40)) of the PicoHomeComputer.
