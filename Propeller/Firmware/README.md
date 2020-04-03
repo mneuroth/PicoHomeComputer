@@ -1,0 +1,1 @@
+# Firmware for IO processor of the PicoHomeComputerParts of the fimrware are used from the [Propeller Library](https://github.com/parallaxinc/propeller):* ASCII0_STREngine.spin* PS2_HIDEngine.spin* Parallax Serial Terminal.spin* Synth.spin* VGA_HiRes_Text.spin
