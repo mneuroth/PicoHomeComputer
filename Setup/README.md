@@ -16,6 +16,6 @@ Programming operation mode
 Images
 ------
 
-<img src="Setup/ConfigurationForRunning.png" alt="Normal Operation" >
+<img src="ConfigurationForRunning.png" alt="Normal Operation" >
 
-<img src="Setup/ConfigurationForProgramming.png" alt="Programming Operation" >
+<img src="ConfigurationForProgramming.png" alt="Programming Operation" >
