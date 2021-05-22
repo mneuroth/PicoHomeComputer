@@ -61,8 +61,9 @@ Parts
 - Supported Hardware Modules
   - [ENC23J60 adapter](https://eckstein-shop.de/ENC28J60-Ethernet-LAN-Netzwerk-Modul)
   - [SD Card adapter](https://eckstein-shop.de/SD-Memory-Card-Module-Slot-SPI-Reader)
-- [Datasheets](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches/datasheets)
-- Documentation
+- [Datasheets](https://github.com/mneuroth/PicoHomeComputer/tree/master/datasheets)
+- [Documentation](https://github.com/mneuroth/PicoHomeComputer/tree/master/Documentation)
+- [Setup and Operation](https://github.com/mneuroth/PicoHomeComputer/tree/master/Setup)
 
 
 # Some useful informations about microcontrollers
