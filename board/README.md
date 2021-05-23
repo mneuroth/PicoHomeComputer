@@ -57,11 +57,11 @@ Fixes:
 - updated some resistor values for VGA output
 
 Open problems:
-- hardware SPI bus of IC1 must be connected to Pins ??? (otherwiese only SoftSPI is working) -> modify layout
+- to use the hardware SPI bus of IC1 the pins SDO and SDI must be interchanged! Reason: SDO means SerialDataOut/In instead of SlaveDataOut/In. Otherwiese only SoftSPI is working -> modify layout
 - VGA connector is plug but should be socket -> modify layout
-- footprint for SD card slot doesen't fit -> modify layout or use other SD card slot
+- footprint for SD card slot doesn't fit -> modify layout or use other SD card slot
 - maybe: more decoupling capacitors for power supply
-- maybe: change to socket (instead of plug) for RS232 adapter, buildin null modem?
+- maybe: change to socket (instead of plug) for RS232 adapter, build in null modem?
 
 History of the PicoHomeComputer
 -------------------------------
