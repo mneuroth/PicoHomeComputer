@@ -48,6 +48,9 @@ Parts
 -----
 
 - [Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/board)
+- [Documentation](https://github.com/mneuroth/PicoHomeComputer/tree/master/Documentation)
+- [Setup and Operation of the Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/Setup)
+- [Setup ArduinoIDE for PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
 - Software for the PicoHomeComputer
   - [chipKIT](https://chipkit.net/), this is the PIC32 platform support for the [Arduiono IDE](https://www.arduino.cc/en/Main/Software)
   - [chipKIT patches for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
@@ -62,9 +65,6 @@ Parts
   - [ENC23J60 adapter](https://eckstein-shop.de/ENC28J60-Ethernet-LAN-Netzwerk-Modul)
   - [SD Card adapter](https://eckstein-shop.de/SD-Memory-Card-Module-Slot-SPI-Reader)
 - [Datasheets](https://github.com/mneuroth/PicoHomeComputer/tree/master/datasheets)
-- [Documentation](https://github.com/mneuroth/PicoHomeComputer/tree/master/Documentation)
-- [Setup and Operation of the Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/Setup)
-- [Setup ArduinoIDE for PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
 
 
 # Some useful informations about microcontrollers
