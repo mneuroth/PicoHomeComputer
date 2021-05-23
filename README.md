@@ -48,7 +48,7 @@ Parts
 -----
 
 - [Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/board)
-- Software for PicoHomeComputer
+- Software for the PicoHomeComputer
   - [chipKIT](https://chipkit.net/), this is the PIC32 platform support for the [Arduiono IDE](https://www.arduino.cc/en/Main/Software)
   - [chipKIT patches for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
   - [uLisp for chipKIT](https://github.com/mneuroth/ulisp-pic32-chipKIT), the [uLisp](http://www.ulisp.com/) (a lisp for microcontrollers) for the PIC32 microcontroller
@@ -64,6 +64,7 @@ Parts
 - [Datasheets](https://github.com/mneuroth/PicoHomeComputer/tree/master/datasheets)
 - [Documentation](https://github.com/mneuroth/PicoHomeComputer/tree/master/Documentation)
 - [Setup and Operation](https://github.com/mneuroth/PicoHomeComputer/tree/master/Setup)
+- [Setup ArduinoIDE for PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
 
 
 # Some useful informations about microcontrollers

@@ -3,7 +3,9 @@
 Setup of the development environment for the PicoHomeComputer:
 
   - Install the [ArduinoIDE](https://www.arduino.cc/en/Main/Software)
-  - Install the chipKIT plugin, for further details see the original [chipKIT documentation](https://chipkit.net/wiki/index.php?title=ChipKIT_core)
+  - Install the chipKIT plugin, for further details see the original [chipKIT documentation](https://chipkit.net/wiki/index.php?title=ChipKIT_core). There are two options to install the chipKIT support:
+    a) Autoinstal inside the ArduinoIDE via URL to chipKIT server (update URL in preferences dialog of ArduinoIDE)
+    b) Manuall install by copying ZIP file
   - Patch the chipKIT to add support for the PicoHomeComputer
 
 Patch for PicoHomeComputer
