@@ -57,7 +57,7 @@ Fixes:
 - updated some resistor values for VGA output
 
 Open problems:
-- to use the hardware SPI bus of IC1 the pins SDO and SDI must be interchanged! Reason: SDO means SerialDataOut/In instead of SlaveDataOut/In. Otherwiese only SoftSPI is working -> modify layout
+- to use the hardware SPI bus of IC1 the pins SDO and SDI must be interchanged! Reason: SDO means SerialDataOut/In instead of SlaveDataOut/In. Pin 14 == RPB5 == SDO2 and Pin 24 == RPB13 == SDI2. Otherwiese only SoftSPI is working -> modify layout
 - VGA connector is plug but should be socket -> modify layout
 - footprint for SD card slot doesn't fit -> modify layout or use other SD card slot
 - maybe: more decoupling capacitors for power supply

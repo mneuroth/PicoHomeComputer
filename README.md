@@ -14,7 +14,7 @@ for example the computer can be connected via LAN to the internet.
 Technical specifications
 ------------------------
 
-- Processor: PIC32 microcontroller (MIPS based, [PIC32MX270B256](https://www.microchip.com/wwwproducts/en/PIC32MX270F256B)), optional: [ESP32 from espressif](http://esp32.net/)  
+- Processor: PIC32 microcontroller (MIPS based, [PIC32MX270F256B](https://www.microchip.com/wwwproducts/en/PIC32MX270F256B)), optional: [ESP32 from espressif](http://esp32.net/)  
   - CPU clock speed: 48 MHz
   - RAM: 64 kByte
   - ROM: 256 kByte
