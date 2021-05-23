@@ -4,6 +4,7 @@ Initial firmware setup
 ----------------------
 
 - Configure the board for the programming operation mode (see below).
+- Install the [Arduino IDE](https://www.arduino.cc/en/software), install the [chipKIT support for the Arduino IDE](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches) and install the [Propeller IDE](https://developer.parallax.com/propelleride/).
 - Flash the (Arduino compatible) [PicoHomeComputer bootloader](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader/tree/master/firmware/bootloaders-hex) for the PIC32 MCU (IC1), so that the firmware of the MCU can be updated with the Arduino IDE via the USB RS232 connection. Use the JTAG connector K12 to connect a PICKit 3 programmer for initial firmware flashing.
 - optional: Open the source code of the [uLisp implementation for the chipKIT platform](https://github.com/mneuroth/ulisp-pic32-chipKIT) inside the Arduino IDE and upload this firmware for testing. Communication is possible via the RS232 connection on connector K7 (MC_RS232).
 - Open the source code of the [uLisp implementation for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-ulisp) inside the Arduino IDE and upload this firmware the the normal operation mode.
