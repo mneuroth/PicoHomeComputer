@@ -47,6 +47,35 @@ Comment           | Version | Date
 Initial release   | 1.0     | 21.1.2020
 Bugfixes          | 1.1     | work in progress
 
+
+Problems with Version 1.0 and fixed in Version 1.1
+--------------------------------------------------
+
+Fixes:
+- added capacitor C106 at pin 23 of IC1 (decoupling capacitor needed for flashing)
+- value for R102 changed from 2.2kOhm to 1 kOhm
+- updated some resistor values for VGA output
+
+Open problems:
+- hardware SPI bus of IC1 must be connected to Pins ??? (otherwiese only SoftSPI is working) -> modify layout
+- VGA connector is plug but should be socket -> modify layout
+- footprint for SD card slot doesen't fit -> modify layout or use other SD card slot
+- maybe: more decoupling capacitors for power supply
+- maybe: change to socket (instead of plug) for RS232 adapter, buildin null modem?
+
+History of the PicoHomeComputer
+-------------------------------
+
+- Started with circuit: spring 2017
+- Order of electronic parts: may 2017, december 2019
+- Resumed project: november 2019
+- Started github project: 26.11.2019
+- Started with layout of board: december 2019
+- Finished Version 1.0 of board and ordered prototype: 21.1.2020
+- Started to arm the board with electronic parts: 7.2.2020
+- Finished first iteration of board setup and firmware development: may 2020
+- Started second iteration of firmware development, updated documentation: may 2021
+
 Images
 ------
 
