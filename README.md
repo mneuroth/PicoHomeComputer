@@ -63,7 +63,7 @@ Parts
   - [SD Card adapter](https://eckstein-shop.de/SD-Memory-Card-Module-Slot-SPI-Reader)
 - [Datasheets](https://github.com/mneuroth/PicoHomeComputer/tree/master/datasheets)
 - [Documentation](https://github.com/mneuroth/PicoHomeComputer/tree/master/Documentation)
-- [Setup and Operation of Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/Setup)
+- [Setup and Operation of the Board](https://github.com/mneuroth/PicoHomeComputer/tree/master/Setup)
 - [Setup ArduinoIDE for PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
 
 
