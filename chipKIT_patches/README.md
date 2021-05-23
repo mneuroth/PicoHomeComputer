@@ -36,3 +36,7 @@ The bootloader must be installed to use the PicoHomeComputer with the ArduinoIDE
 PROGRAM_BUTTON (Arduino pin 2, PIC32 pin 4 (RB0)) must be pressed when resetting the PicoHomeComputer board.
 The fast flashing LED indicates, that the boards mode was entered and the PIC32 waits for a program to be 
 transfered via the USB connection (as serial COM port) from the ArduinoIDE.
+
+To upload th bootloader to the PIC32 a flash programmer like [PICKit 3](https://www.microchip.com/DevelopmentTools/ProductDetails/PG164130#utm_source=MicroSolutions&utm_medium=Link&utm_term=FY17Q1&utm_content=DevTools&utm_campaign=Article) 
+has to be used to flash the PIC32 with the initial bootloader firmware. The programmer must be connected to the JTAG connector on pin bar K12. 
+To upload the firmware use the [MPLAB X Integrated Programming Environment (IPE)](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-integrated-programming-environment)
