@@ -60,8 +60,11 @@ Open problems:
 - to use the hardware SPI bus of IC1 the pins SDO and SDI must be interchanged! Reason: SDO means SerialDataOut/In instead of SlaveDataOut/In. Pin 14 == RPB5 == SDO2 and Pin 24 == RPB13 == SDI2. Otherwiese only SoftSPI is working -> modify layout
 - VGA connector is plug but should be socket -> modify layout
 - footprint for SD card slot doesn't fit -> modify layout or use other SD card slot
-- maybe: more decoupling capacitors for power supply
-- maybe: change to socket (instead of plug) for RS232 adapter, build in null modem?
+- maybe: add more decoupling capacitors for power supply
+- maybe: change to male connector (instead of female connector) for RS232 adapter and build in null modem? Is the PicoHomeComputer a RS232 Host (DTE = Data Terminal Equipment, male connector) or Device (DCE = Data Circuit-terminating Equipment, female connector), see [RS232 wikipedia](https://en.wikipedia.org/wiki/RS-232)? Currently the PicoHomeComputer is a RS232 Host (DTE) but has the wrong connector type (female connector). Pin 3 of K7 connector is TX signal and Pin 2 is RX signal.
+
+Possible improvements:
+- maybe: use SPI bus to communicate between MCU (IC1) and IO Processor (IC5). Advantage: save one line on MCP (SPI Chip Select <--> RX, TX).
 
 History of the PicoHomeComputer
 -------------------------------

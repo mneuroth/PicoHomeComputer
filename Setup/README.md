@@ -23,7 +23,7 @@ Programming operation mode
 --------------------------
 
 - For initial flashing of the (Arduino compatible) bootloader connect a programmer to the JTAG connector K12.
-- Enable the programming modus of the boot loader for the MCU (IC1) by connecing Pin 2 and Pin 4 of pin bar K15.
+- Enable the programming modus of the boot loader for the MCU (IC1) by connecing Pin 2 and Pin 4 of pin bar K15. The fast blinking LED D101 near the JTAG connector indicates the programming mode.
 - Connect USB on K5 to Host Computer to flash the MCU (IC1) with Arduino Studio
 
 - Set BOEn to GND for the IO Processor (IC5) by connecting Pin 1 and Pin 2 of pin bar K503.
