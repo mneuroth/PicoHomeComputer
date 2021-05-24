@@ -55,9 +55,9 @@ Parts
   - [chipKIT](https://chipkit.net/), this is the PIC32 platform support for the [Arduiono IDE](https://www.arduino.cc/en/Main/Software)
   - [chipKIT patches for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer/tree/master/chipKIT_patches)
   - [uLisp for chipKIT](https://github.com/mneuroth/ulisp-pic32-chipKIT), the [uLisp](http://www.ulisp.com/) (a lisp for microcontrollers) for the PIC32 microcontroller 
-    (only communication via RS232 interface possible)
+    - only communication via RS232 interface possible
   - [uLisp for PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-ulisp), the [uLisp](http://www.ulisp.com/) (a lisp for microcontrollers) for the PicoHomeComputer 
-(using the Propeller IO Processer for full IO support with Keyboard, Mouse and VGA)
+    - using the Propeller IO Processer for full IO support with Keyboard, Mouse and VGA
   - [Bootloader for the PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-pic32-bootloader)
   - [Library for ENC28J60 for chipKIT/PicoHomeComputer](https://github.com/mneuroth/PicoHomeComputer-EtherCard)
   - [Libraries for Propeller](https://github.com/parallaxinc/propeller)
