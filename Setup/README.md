@@ -27,7 +27,7 @@ Programming operation mode
 - Connect USB on K5 to Host Computer to flash the MCU (IC1) with Arduino Studio
 
 - Set BOEn to GND for the IO Processor (IC5) by connecting Pin 1 and Pin 2 of pin bar K503.
-- Connect USB RS232 Adapter FTDI232 to serial port of IO PRocessor (IC5) on of Pin 2 of pin bar K603 (TX) and Pin 2 of pin bar K604 (RX) and Pin 2 (RESn) of pin bar K505 (DTR).
+- Connect USB RS232 Adapter FTDI232 to serial port of IO PRocessor (IC5) on Pin 2 of pin bar K603 (TX), Pin 2 of pin bar K604 (RX), Pin 2 (RESn) of pin bar K505 (DTR) and on a GND pin (for example on pin 3 of pin bar K14).
 - Connect USB RS232 Adapter FTDI232 to Host Computer to flash the IO Processor (IC5) with Propeller IDE.
 
 <img src="ConfigurationForProgramming.png" alt="Programming Operation" >
