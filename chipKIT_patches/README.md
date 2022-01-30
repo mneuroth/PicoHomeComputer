@@ -3,7 +3,7 @@
 Setup of the development environment for the PicoHomeComputer:
 
   - Install the [ArduinoIDE](https://www.arduino.cc/en/Main/Software)
-  - Install the chipKIT plugin, for further details see the original [chipKIT documentation](https://chipkit.net/wiki/index.php?title=ChipKIT_core). There are two options to install the chipKIT support:
+  - Install the chipKIT plugin, for further details see the original [chipKIT documentation](https://chipkit.net/wiki/index.php?title=ChipKIT_core). The needed files can be copied from the [GitHub Project of chipKIT](https://github.com/chipKIT32/chipKIT-core) out of the [Releases](https://github.com/chipKIT32/chipKIT-core/releases). There are two options to install the chipKIT support:
     - Autoinstal inside the ArduinoIDE via URL to chipKIT server (update URL in preferences dialog of ArduinoIDE)
     - Manuall install by copying ZIP file
   - Patch the chipKIT to add support for the PicoHomeComputer
@@ -12,9 +12,7 @@ Patch for PicoHomeComputer
 --------------------------  
   
 To add the PicoHomeComputer to the supported boards of the [chipKIT environment](http://chipkit.net/) in the ArduinoIDE
-some files have to be modified. The needed files can be copied from the [GitHub Project of chipKIT](https://github.com/chipKIT32/chipKIT-core)
-out of the [Releases](https://github.com/chipKIT32/chipKIT-core/releases).
-
+some files have to be modified.
 The chipKIT plugin for the ArduinoIDE is normaly located in this directory:
 
     C:\Users\{username}\AppData\Local\Arduino15\packages\chipKIT
@@ -72,5 +70,5 @@ This is the second method for installing chipKIT-core, and it is normally used b
 * Download the latest version of the chipKIT-core archive file for your platform (see below for the download links).
 * Extract the chipkit-core folder from the archive file, and move it into your Arduino/hardware folder. If there is no 'hardware' folder, you can create one. The location of the Arduino folder will be different in every system (for example, "C:\Users\Brian\Documents\Arduino\hardware" under Windows) but if you want to know where yours is, simply open the Arduino IDE, and go to File->Preferences and look at the value in the "Sketchbook location:" field.
 * Make sure that you have "Arduino\hardware\chipkit-core\pic32\", as it's possible to get an extra level of chipkit-core folder in there, which will prevent things from working right.
-' Now fire up the Arduino IDE with this new core installed, and from the Tools->Board menu you should see all of the chipKIT boards available. Choose the board you have, and you are ready to compile.
+* Now fire up the Arduino IDE with this new core installed, and from the Tools->Board menu you should see all of the chipKIT boards available. Choose the board you have, and you are ready to compile.
 ```
